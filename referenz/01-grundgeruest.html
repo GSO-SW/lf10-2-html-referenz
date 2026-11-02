@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- Die DOCTYPE-Zeile sagt dem Browser: "Das ist modernes HTML". Immer Zeile 1. -->
+<html lang="de">
+<!-- lang="de": Screenreader lesen mit deutscher Aussprache vor,
+     Übersetzer und Silbentrennung funktionieren richtig. -->
+
+<head>
+  <!-- @start head-meta -->
+  <meta charset="utf-8">
+  <!-- utf-8: Umlaute (ä, ö, ü) und ß werden korrekt dargestellt -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- viewport: auf dem Handy nicht "herausgezoomt" anzeigen.
+       Ohne diese Zeile ist keine Seite responsiv. -->
+
+  <meta name="description" content="Grundgerüst einer HTML-Seite mit Erklärungen">
+  <!-- description: der Text, den Suchmaschinen unter dem Titel anzeigen -->
+  <!-- @ende head-meta -->
+
+  <!-- @start head-title -->
+  <title>01 Grundgerüst · HTML-Referenz</title>
+  <!-- Der Titel steht im Browser-Tab, in Lesezeichen und in Suchergebnissen.
+       Pflicht! Jede Seite braucht einen eigenen, aussagekräftigen Titel. -->
+  <!-- @ende head-title -->
+
+  <!-- @start head-css -->
+  <link rel="stylesheet" href="css/basis.css">
+  <!-- CSS gehört in eine eigene Datei und wird im <head> eingebunden -->
+  <!-- @ende head-css -->
+</head>
+
+<body>
+  <!-- Alles, was man auf der Seite SIEHT, steht im <body>. -->
+  <header>
+    <p><a href="index.html">← Zur Übersicht</a></p>
+  </header>
+
+  <main>
+    <h1>Das Grundgerüst</h1>
+    <p>
+      Diese Datei ist selbst das Beispiel: Öffne sie im Editor und lies die
+      Kommentare. Jede HTML-Seite beginnt mit genau diesem Gerüst.
+    </p>
+    <p>
+      Tipp für VS Code: Neue Datei <code>index.html</code> anlegen,
+      <kbd>!</kbd> tippen und <kbd>Tab</kbd> drücken – das Gerüst wird
+      automatisch eingefügt. Danach <code>lang="en"</code> zu
+      <code>lang="de"</code> ändern!
+    </p>
+  </main>
+
+  <footer>
+    <p>HTML-Referenz · Georg-Simon-Ohm-Berufskolleg</p>
+  </footer>
+</body>
+
+</html>

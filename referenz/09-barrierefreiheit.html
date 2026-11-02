@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>09 Barrierefreiheit · HTML-Referenz</title>
+  <link rel="stylesheet" href="css/basis.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+  <header>
+    <p><a href="index.html">← Zur Übersicht</a></p>
+  </header>
+
+  <main id="inhalt">
+    <h1>Barrierefreiheit (Accessibility, a11y)</h1>
+    <p>
+      Seit dem 28. Juni 2025 gilt das Barrierefreiheitsstärkungsgesetz (BFSG)
+      für viele digitale Angebote, z. B. Online-Shops und Buchungsportale.
+      Maßstab ist in der Praxis die WCAG (Web Content Accessibility Guidelines)
+      auf Stufe AA. Gute Nachricht: <strong>Das meiste erledigt sauberes,
+      semantisches HTML von allein.</strong>
+    </p>
+
+    <!-- @start a11y-pour -->
+    <h2>Die vier Prinzipien der WCAG (POUR)</h2>
+    <dl>
+      <dt>Wahrnehmbar (Perceivable)</dt>
+      <dd>Alternativtexte, Untertitel, ausreichende Kontraste.</dd>
+      <dt>Bedienbar (Operable)</dt>
+      <dd>Alles per Tastatur erreichbar, sichtbarer Fokus, genug Zeit.</dd>
+      <dt>Verständlich (Understandable)</dt>
+      <dd>Klare Sprache, verständliche Fehlermeldungen, vorhersehbares Verhalten.</dd>
+      <dt>Robust</dt>
+      <dd>Valides HTML, damit Browser und Hilfsmittel es zuverlässig verstehen.</dd>
+    </dl>
+    <!-- @ende a11y-pour -->
+
+    <!-- @start a11y-checkliste -->
+    <h2>Die 10-Punkte-Schnellprüfung</h2>
+    <ol>
+      <li><code>&lt;html lang="de"&gt;</code> gesetzt</li>
+      <li>Aussagekräftiger <code>&lt;title&gt;</code></li>
+      <li>Genau ein <code>&lt;h1&gt;</code>, Überschriften ohne Sprünge</li>
+      <li>Landmarks: <code>header</code>, <code>nav</code>, <code>main</code>, <code>footer</code></li>
+      <li>Jedes <code>&lt;img&gt;</code> hat ein passendes <code>alt</code> (dekorativ: <code>alt=""</code>)</li>
+      <li>Jedes Formularfeld hat ein <code>&lt;label&gt;</code></li>
+      <li>Linktexte sind ohne Umgebung verständlich</li>
+      <li>Alles per <kbd>Tab</kbd> erreichbar, Fokus immer sichtbar</li>
+      <li>Kontrast Text/Hintergrund mindestens 4,5 : 1</li>
+      <li>Information nie NUR über Farbe (z. B. Fehler zusätzlich als Text)</li>
+    </ol>
+    <!-- @ende a11y-checkliste -->
+
+    <!-- @start a11y-aria-regel -->
+    <!-- ARIA (aria-label, role, …) ergänzt HTML, ersetzt es aber nicht.
+         Erste Regel von ARIA: Wenn es ein HTML-Element gibt, das die Aufgabe
+         erfüllt (<button>, <nav>, <label>), nimm das Element – kein ARIA.
+         Falsches ARIA ist schlimmer als gar keins. -->
+    <h2>ARIA – sparsam einsetzen</h2>
+    <p>
+      ✘ <code>&lt;div role="button" tabindex="0"&gt;</code><br>
+      ✔ <code>&lt;button type="button"&gt;</code>
+    </p>
+    <!-- @ende a11y-aria-regel -->
+
+    <!-- @start a11y-live -->
+    <!-- Statusmeldungen, die sich ohne Neuladen ändern (z. B. "Antrag gespeichert"),
+         in einen Bereich mit role="status" schreiben – dann liest der
+         Screenreader sie automatisch vor. -->
+    <h2>Statusmeldung</h2>
+    <p role="status">Ihr Antrag wurde gespeichert.</p>
+    <!-- @ende a11y-live -->
+
+    <!-- @start a11y-werkzeuge -->
+    <h2>Selbst testen</h2>
+    <ul>
+      <li><strong>Tastatur-Test:</strong> Maus weglegen, nur mit <kbd>Tab</kbd>,
+        <kbd>Shift</kbd>+<kbd>Tab</kbd>, <kbd>Enter</kbd>, <kbd>Leertaste</kbd> bedienen.</li>
+      <li><strong>Validator:</strong> <a href="https://validator.w3.org/">validator.w3.org</a>
+        → Reiter „Validate by File Upload“ → HTML-Datei hochladen</li>
+      <li><strong>Browser-DevTools:</strong> Lighthouse → „Barrierefreiheit“</li>
+      <li><strong>axe DevTools:</strong> Browser-Erweiterung, findet viele Fehler automatisch</li>
+      <li><strong>Screenreader:</strong> NVDA (Windows, kostenlos), VoiceOver (macOS: <kbd>Cmd</kbd>+<kbd>F5</kbd>)</li>
+    </ul>
+    <p>
+      Automatische Tests finden nur einen Teil der Probleme. Der Tastatur-Test
+      und ein kurzer Screenreader-Test gehören immer dazu.
+    </p>
+    <!-- @ende a11y-werkzeuge -->
+  </main>
+</body>
+
+</html>

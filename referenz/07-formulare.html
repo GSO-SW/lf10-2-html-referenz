@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>07 Formulare · HTML-Referenz</title>
+  <link rel="stylesheet" href="css/basis.css">
+</head>
+
+<body>
+  <header>
+    <p><a href="index.html">← Zur Übersicht</a></p>
+  </header>
+
+  <main>
+    <h1>Formulare: Der Vertretungsantrag</h1>
+    <p>Pflichtfelder sind mit <span aria-hidden="true">*</span> (Pflichtfeld) gekennzeichnet.</p>
+
+    <!-- @start form-element -->
+    <!-- <form>: action = wohin die Daten geschickt werden,
+                 method = "post" für Daten, die etwas ändern (Antrag anlegen),
+                          "get" für Suchen/Filter (Daten landen in der URL!).
+         Im Prototyp gibt es noch keinen Server → action="#" -->
+    <form action="#" method="post">
+    <!-- @ende form-element -->
+
+      <!-- @start form-label-text -->
+      <!-- JEDES Eingabefeld braucht ein <label>.
+           for="…" im Label = id="…" im Feld → so gehören sie zusammen.
+           Vorteile: Klick aufs Label setzt den Cursor ins Feld,
+           Screenreader lesen den Label-Text vor.
+           Ein placeholder ist KEIN Ersatz für ein Label (verschwindet beim Tippen). -->
+      <div class="feld">
+        <label for="name">Name der Lehrkraft <span aria-hidden="true">*</span></label>
+        <input type="text" id="name" name="name" autocomplete="name" required>
+      </div>
+      <!-- @ende form-label-text -->
+
+      <!-- @start form-input-typen -->
+      <!-- Der richtige type bringt die passende Handy-Tastatur und Prüfung mit:
+           email, tel, date, number, url, password, search … -->
+      <div class="feld">
+        <label for="email">Dienstliche E-Mail <span aria-hidden="true">*</span></label>
+        <input type="email" id="email" name="email" autocomplete="email" required>
+      </div>
+
+      <div class="feld">
+        <label for="datum">Datum der Abwesenheit <span aria-hidden="true">*</span></label>
+        <input type="date" id="datum" name="datum" required>
+      </div>
+
+      <div class="feld">
+        <label for="stunden">Anzahl betroffener Unterrichtsstunden</label>
+        <input type="number" id="stunden" name="stunden" min="1" max="15" step="1">
+      </div>
+      <!-- @ende form-input-typen -->
+
+      <!-- @start form-hinweis -->
+      <!-- Hinweistext mit dem Feld verknüpfen: aria-describedby="id-des-hinweises".
+           Der Screenreader liest dann Label UND Hinweis vor. -->
+      <div class="feld">
+        <label for="kuerzel">Lehrerkürzel <span aria-hidden="true">*</span></label>
+        <input type="text" id="kuerzel" name="kuerzel" required
+          pattern="[A-Za-z]{2,4}" aria-describedby="kuerzel-hinweis">
+        <p class="hinweis" id="kuerzel-hinweis">2 bis 4 Buchstaben, z. B. „EL“.</p>
+      </div>
+      <!-- @ende form-hinweis -->
+
+      <!-- @start form-radio -->
+      <!-- Radiobuttons: EINE Auswahl aus mehreren. Alle haben denselben name.
+           <fieldset> + <legend> fassen die Gruppe zusammen; die Legende ist
+           die "Frage" zu den Antworten. -->
+      <fieldset>
+        <legend>Grund der Abwesenheit <span aria-hidden="true">*</span></legend>
+
+        <div class="auswahl">
+          <input type="radio" id="grund-dienst" name="grund" value="dienstveranstaltung" required>
+          <label for="grund-dienst">Dienstveranstaltung</label>
+        </div>
+        <div class="auswahl">
+          <input type="radio" id="grund-pruefung" name="grund" value="pruefungsausschuss">
+          <label for="grund-pruefung">Prüfungsausschuss</label>
+        </div>
+        <div class="auswahl">
+          <input type="radio" id="grund-fortbildung" name="grund" value="fortbildung">
+          <label for="grund-fortbildung">Fortbildung</label>
+        </div>
+        <div class="auswahl">
+          <input type="radio" id="grund-sonstiges" name="grund" value="sonstiges">
+          <label for="grund-sonstiges">Sonstiges</label>
+        </div>
+      </fieldset>
+      <!-- @ende form-radio -->
+
+      <!-- @start form-checkbox -->
+      <!-- Checkboxen: MEHRERE Auswahlen möglich -->
+      <fieldset>
+        <legend>Betroffene Bereiche</legend>
+        <div class="auswahl">
+          <input type="checkbox" id="bereich-av" name="bereich_av" value="AV">
+          <label for="bereich-av">Ausbildungsvorbereitung (AV)</label>
+        </div>
+        <div class="auswahl">
+          <input type="checkbox" id="bereich-et" name="bereich_et" value="ET">
+          <label for="bereich-et">Elektrotechnik (ET)</label>
+        </div>
+        <div class="auswahl">
+          <input type="checkbox" id="bereich-it" name="bereich_it" value="IT">
+          <label for="bereich-it">Informationstechnik (IT)</label>
+        </div>
+      </fieldset>
+      <!-- @ende form-checkbox -->
+
+      <!-- @start form-select -->
+      <!-- Auswahlliste: sinnvoll ab ca. 5 Optionen, sonst lieber Radiobuttons -->
+      <div class="feld">
+        <label for="klasse">Betroffene Klasse</label>
+        <select id="klasse" name="klasse">
+          <option value="">– bitte wählen –</option>
+          <optgroup label="Informationstechnik">
+            <option value="FIA3C">FIA3C</option>
+            <option value="FIA4V">FIA4V</option>
+          </optgroup>
+          <optgroup label="Elektrotechnik">
+            <option value="ET2B">ET2B</option>
+          </optgroup>
+        </select>
+      </div>
+      <!-- @ende form-select -->
+
+      <!-- @start form-textarea -->
+      <!-- Mehrzeiliger Text: <textarea> (hat ein schließendes Tag!) -->
+      <div class="feld">
+        <label for="auftrag">Arbeitsauftrag für die Vertretung</label>
+        <textarea id="auftrag" name="auftrag" rows="5" maxlength="1000"></textarea>
+      </div>
+      <!-- @ende form-textarea -->
+
+      <!-- @start form-datei -->
+      <div class="feld">
+        <label for="nachweis">Nachweis (PDF)</label>
+        <input type="file" id="nachweis" name="nachweis" accept="application/pdf">
+      </div>
+      <!-- @ende form-datei -->
+
+      <!-- @start form-buttons -->
+      <!-- Absenden mit <button type="submit">. Den type IMMER angeben:
+           Ein <button> ohne type ist in Formularen automatisch "submit".
+           Gestaltung der Buttons: siehe 08-buttons.html -->
+      <p>
+        <button type="submit" class="button">Antrag einreichen</button>
+        <button type="reset" class="button button--sekundaer">Eingaben löschen</button>
+      </p>
+      <!-- @ende form-buttons -->
+    </form>
+
+    <!-- @start form-fehlermeldung -->
+    <!-- So sieht eine barrierefreie Fehlermeldung aus (statisches Beispiel):
+         - Fehler steht als TEXT da, nicht nur als roter Rahmen
+         - aria-invalid="true" markiert das Feld als fehlerhaft
+         - aria-describedby verknüpft Feld und Fehlermeldung -->
+    <h2>Beispiel: Fehlermeldung</h2>
+    <div class="feld">
+      <label for="email-fehler">Dienstliche E-Mail</label>
+      <input type="email" id="email-fehler" name="email-fehler" value="el@gso"
+        aria-invalid="true" aria-describedby="email-fehler-text">
+      <p class="fehlertext" id="email-fehler-text">
+        Fehler: Bitte eine vollständige Adresse eingeben, z. B. name@schule.koeln.
+      </p>
+    </div>
+    <!-- @ende form-fehlermeldung -->
+  </main>
+</body>
+
+</html>

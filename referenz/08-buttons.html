@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>08 Buttons · HTML-Referenz</title>
+  <link rel="stylesheet" href="css/basis.css">
+</head>
+
+<body>
+  <header>
+    <p><a href="index.html">← Zur Übersicht</a></p>
+  </header>
+
+  <main>
+    <h1>Buttons</h1>
+
+    <!-- @start button-oder-link -->
+    <!-- Die wichtigste Frage zuerst: Button oder Link?
+         Link   <a href>   → führt WOANDERS HIN (andere Seite, Download, Anker)
+         Button <button>   → LÖST ETWAS AUS (absenden, öffnen, löschen, filtern)
+         Beides darf gleich AUSSEHEN (gleiche CSS-Klasse), aber das HTML-Element
+         muss zur Funktion passen. Tastatur: Links reagieren auf Enter,
+         Buttons auf Enter UND Leertaste. -->
+    <h2>Button oder Link?</h2>
+    <p>
+      <a class="button" href="07-formulare.html">Zum Antragsformular</a>
+      <!-- sieht aus wie ein Button, IST aber ein Link: er führt zu einer Seite -->
+    </p>
+    <!-- @ende button-oder-link -->
+
+    <!-- @start button-html -->
+    <!-- Ein Button im HTML. type angeben:
+         "button" = macht nichts von allein (JavaScript übernimmt)
+         "submit" = schickt ein Formular ab
+         "reset"  = setzt ein Formular zurück
+         Die Gestaltung kommt über die Klasse "button" aus css/basis.css -->
+    <h2>Varianten</h2>
+    <p>
+      <button type="button" class="button">Speichern</button>
+      <button type="button" class="button button--sekundaer">Abbrechen</button>
+      <button type="button" class="button button--gefahr">Antrag löschen</button>
+      <button type="button" class="button" disabled>Gesperrt</button>
+    </p>
+    <!-- @ende button-html -->
+
+    <!-- @start button-icon -->
+    <!-- Button nur mit Symbol: Der Name muss trotzdem vorlesbar sein.
+         Variante A: unsichtbarer Text (.visually-hidden)
+         Variante B: aria-label
+         Das Symbol selbst wird mit aria-hidden="true" ausgeblendet. -->
+    <h2>Buttons mit Symbol</h2>
+    <p>
+      <button type="button" class="button">
+        <span aria-hidden="true">🗑</span>
+        <span class="visually-hidden">Eintrag löschen</span>
+      </button>
+
+      <button type="button" class="button" aria-label="Plan drucken">
+        <span aria-hidden="true">🖨</span>
+      </button>
+
+      <button type="button" class="button">
+        <span aria-hidden="true">＋</span> Vertretung hinzufügen
+      </button>
+    </p>
+    <!-- @ende button-icon -->
+
+    <!-- @start button-antipattern -->
+    <!-- ✘ SO NICHT – der "div-Button":
+         <div class="button" onclick="speichern()">Speichern</div>
+         Probleme: nicht per Tab erreichbar, nicht per Enter/Leertaste
+         auslösbar, Screenreader sagt nicht "Schalter". Das alles müsste man
+         mühsam nachbauen – <button> kann es von Haus aus. -->
+    <!-- @ende button-antipattern -->
+
+    <h2>Und das CSS dazu?</h2>
+    <p>
+      Öffne <code>css/basis.css</code> und suche nach <code>.button</code>:
+      Grundform, Zustände (hover, focus, disabled) und Varianten sind dort
+      einzeln kommentiert.
+    </p>
+  </main>
+</body>
+
+</html>

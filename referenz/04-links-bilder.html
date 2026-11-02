@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>04 Links und Bilder · HTML-Referenz</title>
+  <link rel="stylesheet" href="css/basis.css">
+</head>
+
+<body>
+  <header>
+    <p><a href="index.html">← Zur Übersicht</a></p>
+  </header>
+
+  <main>
+    <h1>Links und Bilder</h1>
+
+    <h2>Links</h2>
+    <!-- @start link-intern -->
+    <!-- Link auf eine andere Seite im SELBEN Projekt: relativer Pfad.
+         "03-listen.html"      → Datei im selben Ordner
+         "css/basis.css"       → Datei im Unterordner css
+         "../index.html"       → eine Ordnerebene höher -->
+    <p>Weiter zu den <a href="03-listen.html">Listen-Beispielen</a>.</p>
+    <!-- @ende link-intern -->
+
+    <!-- @start link-extern -->
+    <!-- Link auf eine fremde Website: vollständige Adresse mit https://
+         Neues Tab (target="_blank") nur, wenn es wirklich nötig ist –
+         und dann ankündigen, damit niemand überrascht wird. -->
+    <p>
+      Nachschlagen bei
+      <a href="https://developer.mozilla.org/de/docs/Web/HTML">MDN Web Docs (HTML)</a>.
+    </p>
+    <p>
+      <a href="https://validator.w3.org/" target="_blank" rel="noopener">
+        W3C-Validator <span class="visually-hidden">(öffnet in neuem Tab)</span>
+      </a>
+    </p>
+    <!-- @ende link-extern -->
+
+    <!-- @start link-anker -->
+    <!-- Sprung innerhalb der Seite: href="#id" springt zum Element mit dieser id -->
+    <p><a href="#bilder">Direkt zu den Bildern springen</a></p>
+    <!-- @ende link-anker -->
+
+    <!-- @start link-mail-tel -->
+    <p>
+      Fragen an das <a href="mailto:sekretariat@example.org">Sekretariat</a>
+      oder telefonisch: <a href="tel:+492210000000">0221&nbsp;000&nbsp;000&nbsp;0</a>
+    </p>
+    <!-- @ende link-mail-tel -->
+
+    <!-- @start link-text -->
+    <!-- Linktext muss OHNE Umgebung verständlich sein. Screenreader können
+         alle Links einer Seite als Liste anzeigen – "hier", "hier", "hier"
+         hilft dann niemandem.
+         ✘ Für das Formular klicken Sie <a href="…">hier</a>.
+         ✔ <a href="…">Vertretungsformular herunterladen (PDF, 120 KB)</a> -->
+    <p><a href="#formular-download">Vertretungsformular herunterladen (PDF, 120 KB)</a></p>
+    <!-- @ende link-text -->
+
+    <h2 id="bilder">Bilder</h2>
+    <!-- @start bild-alt -->
+    <!-- <img> ist ein leeres Element (kein schließendes Tag).
+         src  = Pfad zur Bilddatei
+         alt  = PFLICHT. Beschreibt, was das Bild AUSSAGT (nicht "Bild von …").
+         width/height = verhindern, dass die Seite beim Laden "springt". -->
+    <img src="bilder/stundenplan.svg" width="320" height="200"
+      alt="Stundenplan, in dem die 2. Stunde am Mittwoch als Vertretung markiert ist">
+    <!-- @ende bild-alt -->
+
+    <!-- @start bild-deko -->
+    <!-- Rein dekoratives Bild (trägt keine Information): alt="" LEER lassen,
+         aber nicht weglassen! Leeres alt = "Screenreader, bitte überspringen".
+         Fehlendes alt = Screenreader liest den Dateinamen vor. -->
+    <img src="bilder/stundenplan.svg" width="80" height="50" alt="">
+    <!-- @ende bild-deko -->
+
+    <!-- @start bild-figure -->
+    <!-- Bild mit sichtbarer Bildunterschrift: <figure> + <figcaption> -->
+    <figure>
+      <img src="bilder/stundenplan.svg" width="320" height="200"
+        alt="Stundenplan mit einer Vertretungsstunde und einer entfallenen Stunde">
+      <figcaption>Abb. 1: So erscheinen Vertretungen im digitalen Plan.</figcaption>
+    </figure>
+    <!-- @ende bild-figure -->
+
+    <!-- @start bild-link -->
+    <!-- Bild als Link: Dann beschreibt alt das ZIEL des Links -->
+    <a href="index.html">
+      <img src="bilder/stundenplan.svg" width="80" height="50" alt="Startseite der HTML-Referenz">
+    </a>
+    <!-- @ende bild-link -->
+
+    <h2 id="formular-download">Download</h2>
+    <p>(Hier stünde im echten Projekt der Download-Link.)</p>
+  </main>
+</body>
+
+</html>

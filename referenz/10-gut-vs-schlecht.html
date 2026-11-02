@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>10 Gut vs. schlecht · HTML-Referenz</title>
+  <link rel="stylesheet" href="css/basis.css">
+</head>
+
+<body>
+  <header>
+    <p><a href="index.html">← Zur Übersicht</a></p>
+  </header>
+
+  <main>
+    <h1>Gut vs. schlecht: dieselbe Karte, zweimal gebaut</h1>
+    <p>
+      Beide Varianten können mit CSS identisch aussehen. Der Unterschied
+      liegt darin, was Browser, Suchmaschinen und Screenreader verstehen.
+      Vergleiche den Quelltext.
+    </p>
+
+    <!-- @start divsuppe -->
+    <!-- ✘ "div-Suppe" – typisch für Page-Builder und schnell zusammengeklickte Seiten
+    <div class="top">
+      <div class="logo">VertretungsPlaner</div>
+      <div class="menu">
+        <div class="item" onclick="location='index.html'">Übersicht</div>
+        <div class="item" onclick="location='antrag.html'">Antrag</div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="big-title">Vertretung Mi, 12.11.</div>
+      <div class="text">LF10 bei Frau Beispiel.</div>
+      <img src="plan.png">
+      <div class="btn" onclick="bestaetigen()">Bestätigen</div>
+    </div>
+
+    Probleme:
+    - keine Landmarks → kein Springen zu Navigation/Inhalt
+    - keine Überschrift → keine Gliederung
+    - "Links" und "Button" sind <div>: nicht per Tastatur bedienbar
+    - Bild ohne alt → Screenreader liest "plan.png"
+    -->
+    <!-- @ende divsuppe -->
+
+    <!-- @start semantisch -->
+    <!-- ✔ Semantisch – gleicher Inhalt, jedes Element sagt, was es IST
+    <header>
+      <p>VertretungsPlaner</p>
+      <nav aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="index.html">Übersicht</a></li>
+          <li><a href="antrag.html">Antrag</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <article>
+        <h1>Vertretung Mi, 12.11.</h1>
+        <p>LF10 bei Frau Beispiel.</p>
+        <img src="plan.png" alt="Stundenplan mit markierter 2. Stunde">
+        <button type="button">Bestätigen</button>
+      </article>
+    </main>
+    -->
+    <!-- @ende semantisch -->
+
+    <h2>Die häufigsten Fehler</h2>
+    <!-- @start top-fehler -->
+    <table>
+      <caption>Typische Fehler und bessere Lösungen</caption>
+      <thead>
+        <tr>
+          <th scope="col">✘ Statt …</th>
+          <th scope="col">✔ … besser</th>
+          <th scope="col">Warum?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>&lt;div onclick&gt;</code></td>
+          <td><code>&lt;button type="button"&gt;</code></td>
+          <td>Tastatur und Screenreader funktionieren automatisch</td>
+        </tr>
+        <tr>
+          <td><code>&lt;h4&gt;</code>, weil es kleiner aussieht</td>
+          <td>richtige Ebene + CSS <code>font-size</code></td>
+          <td>Gliederung bleibt korrekt</td>
+        </tr>
+        <tr>
+          <td><code>&lt;br&gt;&lt;br&gt;</code> für Abstand</td>
+          <td>CSS <code>margin</code></td>
+          <td>Struktur und Gestaltung trennen</td>
+        </tr>
+        <tr>
+          <td><code>placeholder</code> statt Label</td>
+          <td><code>&lt;label for&gt;</code></td>
+          <td>Placeholder verschwindet beim Tippen</td>
+        </tr>
+        <tr>
+          <td>Link-Text „hier klicken“</td>
+          <td>Ziel im Linktext nennen</td>
+          <td>Links müssen allein verständlich sein</td>
+        </tr>
+        <tr>
+          <td><code>outline: none</code></td>
+          <td><code>:focus-visible</code> gestalten</td>
+          <td>Ohne Fokus ist die Seite per Tastatur unbenutzbar</td>
+        </tr>
+        <tr>
+          <td><code>&lt;table&gt;</code> für das Layout</td>
+          <td>CSS Flexbox / Grid</td>
+          <td>Tabellen nur für Daten</td>
+        </tr>
+        <tr>
+          <td><code>&lt;font&gt;</code>, <code>&lt;center&gt;</code></td>
+          <td>CSS</td>
+          <td>veraltet, in HTML5 nicht mehr gültig</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- @ende top-fehler -->
+  </main>
+</body>
+
+</html>

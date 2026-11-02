@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>05 Seitenstruktur (Landmarks) · HTML-Referenz</title>
+  <link rel="stylesheet" href="css/basis.css">
+</head>
+
+<body>
+  <!-- @start skip-link -->
+  <!-- Erster Link der Seite: Tastatur-Nutzer:innen überspringen die Navigation.
+       Gestaltung: siehe .skip-link in css/basis.css -->
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+  <!-- @ende skip-link -->
+
+  <!-- @start landmark-header -->
+  <!-- <header>: Kopfbereich mit Logo/Name und meist der Hauptnavigation -->
+  <header>
+    <p><strong>VertretungsPlaner</strong> · Georg-Simon-Ohm-Berufskolleg</p>
+
+    <!-- @start landmark-nav -->
+    <!-- <nav>: Navigationsblock. Menüs sind LISTEN von Links.
+         aria-label unterscheidet mehrere <nav> auf einer Seite.
+         aria-current="page" markiert die aktuelle Seite. -->
+    <nav aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="index.html">Übersicht</a></li>
+        <li><a href="05-seitenstruktur.html" aria-current="page">Seitenstruktur</a></li>
+        <li><a href="07-formulare.html">Formulare</a></li>
+      </ul>
+    </nav>
+    <!-- @ende landmark-nav -->
+  </header>
+  <!-- @ende landmark-header -->
+
+  <!-- @start landmark-main -->
+  <!-- <main>: der Hauptinhalt. Genau EINMAL pro Seite. -->
+  <main id="inhalt">
+    <h1>Seitenstruktur mit Landmarks</h1>
+    <p>
+      Landmarks sind die "Räume" einer Seite. Screenreader listen sie auf,
+      sodass man direkt z. B. zur Navigation oder zum Hauptinhalt springen
+      kann. Mit <code>&lt;div&gt;</code> geht diese Information verloren.
+    </p>
+
+    <!-- @start landmark-section-article -->
+    <!-- <section>: thematischer Abschnitt MIT Überschrift.
+         <article>: in sich abgeschlossener Inhalt, der auch allein Sinn ergibt
+                    (Meldung, Beitrag, Karte in einer Liste). -->
+    <section aria-labelledby="meldungen-titel">
+      <h2 id="meldungen-titel">Aktuelle Vertretungen</h2>
+
+      <article>
+        <h3>Mi, 12.11. – 2. Stunde, Klasse FIA3C</h3>
+        <p>LF10 bei Frau Beispiel statt Herrn Muster. Raum A 2.14.</p>
+      </article>
+
+      <article>
+        <h3>Do, 13.11. – 5. Stunde, Klasse ITS2A</h3>
+        <p>Entfällt. Arbeitsauftrag im Teams-Kanal.</p>
+      </article>
+    </section>
+    <!-- @ende landmark-section-article -->
+
+    <!-- @start landmark-aside -->
+    <!-- <aside>: Ergänzendes, das man weglassen könnte (Infokasten, Tipps) -->
+    <aside aria-labelledby="tipp-titel">
+      <h2 id="tipp-titel">Gut zu wissen</h2>
+      <p>Anträge spätestens eine Woche vorher einreichen.</p>
+    </aside>
+    <!-- @ende landmark-aside -->
+  </main>
+  <!-- @ende landmark-main -->
+
+  <!-- @start landmark-footer -->
+  <!-- <footer>: Fußbereich (Impressum, Kontakt, Datenschutz) -->
+  <footer>
+    <nav aria-label="Rechtliches">
+      <ul>
+        <li><a href="#impressum">Impressum</a></li>
+        <li><a href="#datenschutz">Datenschutz</a></li>
+        <li><a href="09-barrierefreiheit.html">Erklärung zur Barrierefreiheit</a></li>
+      </ul>
+    </nav>
+  </footer>
+  <!-- @ende landmark-footer -->
+
+  <!--
+    Wann doch <div>?  Nur als "neutraler Behälter" für CSS-Layout, wenn
+    KEIN semantisches Element passt. Faustregel: Erst überlegen, was es
+    IST – dann das passende Element wählen. Siehe 10-gut-vs-schlecht.html
+  -->
+</body>
+
+</html>

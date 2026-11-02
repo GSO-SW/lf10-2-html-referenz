@@ -1,0 +1,273 @@
+/* ==========================================================================
+   basis.css – gemeinsames Stylesheet für alle Referenzseiten
+   --------------------------------------------------------------------------
+   Diese Datei ist bewusst schlicht gehalten. Sie zeigt, WIE man typische
+   Elemente gestaltet – nicht, wie eine fertige Website aussehen muss.
+   Kommentare der Form "@start …" / "@ende …" markieren Abschnitte, auf die
+   die Lernpfade verlinken. Bitte nicht löschen.
+   ========================================================================== */
+
+/* @start css-variablen */
+:root {
+  /* Farben zentral festlegen – so ändert man das Design an EINER Stelle */
+  --farbe-text: #1d1d1f;
+  --farbe-hintergrund: #ffffff;
+  --farbe-primaer: #0b5cad;        /* Kontrast zu Weiß: 6,7 : 1 (WCAG AA ✔) */
+  --farbe-primaer-dunkel: #08427c;
+  --farbe-fehler: #b00020;
+  --farbe-rahmen: #8a8a8e;
+  --farbe-flaeche: #f2f4f7;
+  --radius: 0.375rem;
+  --abstand: 1rem;
+  --schrift: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+/* @ende css-variablen */
+
+/* @start css-grundlayout */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;          /* Breite = Inhalt + Innenabstand + Rahmen */
+}
+
+body {
+  margin: 0;
+  font-family: var(--schrift);
+  font-size: 1.0625rem;            /* rem statt px: wächst mit der Nutzer-Einstellung */
+  line-height: 1.6;
+  color: var(--farbe-text);
+  background: var(--farbe-hintergrund);
+}
+
+main,
+header,
+footer {
+  max-width: 60rem;                /* Zeilen nicht zu lang → besser lesbar */
+  margin-inline: auto;
+  padding: var(--abstand);
+}
+
+img {
+  max-width: 100%;                 /* Bilder laufen nie aus dem Layout */
+  height: auto;
+}
+/* @ende css-grundlayout */
+
+/* @start css-navigation */
+nav ul {
+  display: flex;                   /* Menüpunkte nebeneinander */
+  flex-wrap: wrap;                 /* auf kleinen Bildschirmen umbrechen */
+  gap: var(--abstand);
+  list-style: none;                /* Aufzählungspunkte entfernen … */
+  padding: 0;                      /* … die Liste bleibt semantisch eine Liste */
+  margin: 0;
+}
+
+nav a[aria-current="page"] {
+  font-weight: 700;                /* aktuelle Seite sichtbar UND für Screenreader markiert */
+  text-decoration: none;
+}
+/* @ende css-navigation */
+
+/* @start css-links */
+a {
+  color: var(--farbe-primaer);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.15em;   /* Unterstreichung bleibt: Links nicht nur über Farbe erkennbar */
+}
+
+a:hover {
+  color: var(--farbe-primaer-dunkel);
+}
+/* @ende css-links */
+
+/* @start css-fokus */
+/* Fokus NIE einfach entfernen (outline: none)! Tastatur-Nutzer:innen
+   sehen sonst nicht, wo sie sind. :focus-visible zeigt den Rahmen nur
+   bei Tastaturbedienung, nicht beim Mausklick. */
+:focus-visible {
+  outline: 3px solid var(--farbe-primaer);
+  outline-offset: 2px;
+}
+/* @ende css-fokus */
+
+/* @start css-button-basis */
+.button {
+  display: inline-block;
+  padding: 0.6em 1.2em;            /* em: Abstand wächst mit der Schriftgröße */
+  border: 2px solid var(--farbe-primaer);
+  border-radius: var(--radius);
+  background: var(--farbe-primaer);
+  color: #ffffff;
+  font: inherit;                   /* Buttons erben die Schrift NICHT automatisch */
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;           /* falls die Klasse an einem <a> hängt */
+  cursor: pointer;
+  min-height: 2.75rem;             /* ≈ 44 px Klickfläche – WCAG 2.5.8 fordert mind. 24 px */
+}
+/* @ende css-button-basis */
+
+/* @start css-button-zustaende */
+.button:hover {
+  background: var(--farbe-primaer-dunkel);
+  border-color: var(--farbe-primaer-dunkel);
+}
+
+.button:focus-visible {
+  outline: 3px solid var(--farbe-primaer-dunkel);
+  outline-offset: 3px;
+}
+
+.button:active {
+  transform: translateY(1px);      /* kleines "Drück"-Feedback */
+}
+
+.button:disabled,
+.button[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+/* @ende css-button-zustaende */
+
+/* @start css-button-varianten */
+/* Variante: zweitrangige Aktion ("Abbrechen") */
+.button--sekundaer {
+  background: transparent;
+  color: var(--farbe-primaer);
+}
+
+.button--sekundaer:hover {
+  background: var(--farbe-flaeche);
+  color: var(--farbe-primaer-dunkel);
+}
+
+/* Variante: gefährliche Aktion ("Antrag löschen") */
+.button--gefahr {
+  background: var(--farbe-fehler);
+  border-color: var(--farbe-fehler);
+}
+/* @ende css-button-varianten */
+
+/* @start css-formular */
+.feld {
+  display: flex;
+  flex-direction: column;          /* Label über dem Eingabefeld */
+  gap: 0.25rem;
+  margin-block-end: var(--abstand);
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+  padding: 0.5em 0.6em;
+  border: 2px solid var(--farbe-rahmen);  /* Rahmen ≥ 3:1 Kontrast (WCAG 1.4.11) */
+  border-radius: var(--radius);
+  max-width: 30rem;
+}
+
+fieldset {
+  border: 2px solid var(--farbe-flaeche);
+  border-radius: var(--radius);
+  margin-block-end: var(--abstand);
+}
+
+legend {
+  font-weight: 700;
+  padding-inline: 0.25rem;
+}
+
+.hinweis {
+  font-size: 0.9375rem;
+  color: #4a4a4f;
+}
+
+/* Fehler nicht NUR über Farbe zeigen – der Text im .fehlertext ist entscheidend */
+input:user-invalid,
+select:user-invalid,
+textarea:user-invalid {
+  border-color: var(--farbe-fehler);
+}
+
+.fehlertext {
+  color: var(--farbe-fehler);
+  font-weight: 600;
+}
+
+.auswahl {
+  display: flex;                   /* Radiobutton/Checkbox + Label in einer Zeile */
+  align-items: center;
+  gap: 0.5rem;
+}
+/* @ende css-formular */
+
+/* @start css-tabelle */
+table {
+  border-collapse: collapse;       /* doppelte Linien vermeiden */
+  width: 100%;
+}
+
+caption {
+  text-align: start;
+  font-weight: 700;
+  padding-block-end: 0.5rem;
+}
+
+th,
+td {
+  border: 1px solid var(--farbe-rahmen);
+  padding: 0.4em 0.6em;
+  text-align: start;
+}
+
+thead th {
+  background: var(--farbe-flaeche);
+}
+
+/* Breite Tabellen auf dem Handy horizontal scrollbar machen */
+.tabelle-scroll {
+  overflow-x: auto;
+}
+/* @ende css-tabelle */
+
+/* @start css-skip-link */
+/* "Zum Inhalt springen": unsichtbar, bis er per Tab fokussiert wird */
+.skip-link {
+  position: absolute;
+  left: 0.5rem;
+  top: -3rem;
+  padding: 0.5rem 1rem;
+  background: var(--farbe-primaer);
+  color: #ffffff;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0.5rem;
+}
+/* @ende css-skip-link */
+
+/* @start css-visually-hidden */
+/* Text nur für Screenreader: optisch weg, aber vorgelesen.
+   (display:none würde ihn auch für Screenreader verstecken!) */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+/* @ende css-visually-hidden */
+
+/* Hilfsklasse nur für die Referenzseiten: Code-Beispiele anzeigen */
+pre {
+  background: var(--farbe-flaeche);
+  padding: var(--abstand);
+  border-radius: var(--radius);
+  overflow-x: auto;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>03 Listen · HTML-Referenz</title>
+  <link rel="stylesheet" href="css/basis.css">
+</head>
+
+<body>
+  <header>
+    <p><a href="index.html">← Zur Übersicht</a></p>
+  </header>
+
+  <main>
+    <h1>Listen</h1>
+
+    <!-- @start liste-ungeordnet -->
+    <!-- <ul> = unordered list: Reihenfolge egal. Jeder Punkt ist ein <li>.
+         Screenreader sagen "Liste, 3 Einträge" – das hilft beim Überblick. -->
+    <h2>Mögliche Abwesenheitsgründe</h2>
+    <ul>
+      <li>Dienstveranstaltung</li>
+      <li>Prüfungsausschuss</li>
+      <li>Fortbildung</li>
+    </ul>
+    <!-- @ende liste-ungeordnet -->
+
+    <!-- @start liste-geordnet -->
+    <!-- <ol> = ordered list: Reihenfolge ist wichtig (Schritte, Rangfolge).
+         Die Nummern erzeugt der Browser – nie selbst "1." davorschreiben. -->
+    <h2>So stellen Sie einen Antrag</h2>
+    <ol>
+      <li>Formular ausfüllen</li>
+      <li>Vertretungsvorschlag eintragen</li>
+      <li>Von der Abteilungsleitung abzeichnen lassen</li>
+      <li>Im Sekretariat abgeben</li>
+    </ol>
+    <!-- @ende liste-geordnet -->
+
+    <!-- @start liste-verschachtelt -->
+    <!-- Verschachteln: Die Unterliste steht INNERHALB des <li>,
+         nicht zwischen zwei <li>. -->
+    <h2>Betroffene Bereiche</h2>
+    <ul>
+      <li>Informationstechnik
+        <ul>
+          <li>Fachinformatik (FIA)</li>
+          <li>IT-Systemelektronik</li>
+        </ul>
+      </li>
+      <li>Elektrotechnik</li>
+    </ul>
+    <!-- @ende liste-verschachtelt -->
+
+    <!-- @start liste-beschreibung -->
+    <!-- <dl> = description list: Begriff (<dt>) + Erklärung (<dd>).
+         Ideal für Glossare oder "Schlüssel: Wert"-Angaben. -->
+    <h2>Glossar</h2>
+    <dl>
+      <dt>Paraphe</dt>
+      <dd>Kurzunterschrift (Kürzel) zur Bestätigung der Kenntnisnahme.</dd>
+
+      <dt>Unterrichtsstunde (UStd)</dt>
+      <dd>Eine Zeiteinheit von 45 Minuten im Stundenplan.</dd>
+    </dl>
+    <!-- @ende liste-beschreibung -->
+  </main>
+</body>
+
+</html>

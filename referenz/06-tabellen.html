@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>06 Tabellen · HTML-Referenz</title>
+  <link rel="stylesheet" href="css/basis.css">
+</head>
+
+<body>
+  <header>
+    <p><a href="index.html">← Zur Übersicht</a></p>
+  </header>
+
+  <main>
+    <h1>Tabellen</h1>
+    <p>
+      Tabellen sind für <strong>tabellarische Daten</strong> da – nicht für
+      das Seitenlayout. Layout macht CSS (Flexbox, Grid).
+    </p>
+
+    <!-- @start tabelle-aufbau -->
+    <!-- Aufbau:
+         <caption>  Tabellentitel (wird vorgelesen, bevor die Daten kommen)
+         <thead>    Kopfzeile(n)
+         <tbody>    Datenzeilen
+         <tr>       table row = eine Zeile
+         <th>       table header = Überschriftszelle
+         <td>       table data = Datenzelle
+         scope="col" / scope="row" sagt, ob eine <th> für die Spalte oder
+         die Zeile gilt. So kann ein Screenreader bei jeder Zelle sagen:
+         "Fach: LF10". -->
+    <div class="tabelle-scroll">
+      <table>
+        <caption>Vertretungsvorschlag für Mittwoch, 12.11.</caption>
+        <thead>
+          <tr>
+            <th scope="col">UStd</th>
+            <th scope="col">Fach</th>
+            <th scope="col">Klasse</th>
+            <th scope="col">Vorschlag für Vertretung</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>LF10</td>
+            <td>FIA3C</td>
+            <td>Frau Beispiel</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>LF10</td>
+            <td>FIA3C</td>
+            <td>Frau Beispiel</td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td>Englisch</td>
+            <td>ITS2A</td>
+            <td>Arbeitsauftrag (entfällt)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- @ende tabelle-aufbau -->
+
+    <!-- @start tabelle-verbinden -->
+    <!-- Zellen verbinden: colspan (über Spalten), rowspan (über Zeilen).
+         Sparsam einsetzen – verbundene Zellen sind für Screenreader schwer. -->
+    <table>
+      <caption>Betroffene Bereiche (Kenntnisnahme)</caption>
+      <thead>
+        <tr>
+          <th scope="col">Bereich</th>
+          <th scope="col">AV</th>
+          <th scope="col">ET</th>
+          <th scope="col">IT</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Paraphe</th>
+          <td colspan="2">noch offen</td>
+          <td>RE</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- @ende tabelle-verbinden -->
+  </main>
+</body>
+
+</html>

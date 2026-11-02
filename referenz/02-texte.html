@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>02 Überschriften und Texte · HTML-Referenz</title>
+  <link rel="stylesheet" href="css/basis.css">
+</head>
+
+<body>
+  <header>
+    <p><a href="index.html">← Zur Übersicht</a></p>
+  </header>
+
+  <main>
+    <!-- @start ueberschriften -->
+    <!-- Überschriften bilden die GLIEDERUNG der Seite – wie ein Inhaltsverzeichnis.
+         Regeln:
+         1. Genau EIN <h1> pro Seite (das Thema der Seite).
+         2. Keine Ebene überspringen: nach <h2> kommt <h3>, nicht <h4>.
+         3. Die Größe regelt CSS – nie <h4> nehmen, "weil es kleiner aussieht".
+         Screenreader-Nutzer:innen springen per Taste "H" von Überschrift zu
+         Überschrift. Eine kaputte Gliederung ist für sie wie ein Buch ohne
+         Kapitel. -->
+    <h1>Vertretungsregelung am GSO</h1>
+
+    <h2>Abwesenheit melden</h2>
+    <h3>Planbare Abwesenheit</h3>
+    <h3>Krankheit</h3>
+
+    <h2>Vertretung organisieren</h2>
+    <h3>Aufgaben der Abteilungsleitung</h3>
+    <!-- @ende ueberschriften -->
+
+    <!-- @start absaetze -->
+    <!-- Fließtext steht in <p> (paragraph). Leerzeilen und Zeilenumbrüche
+         im Quelltext ignoriert der Browser – ein neuer Absatz braucht ein
+         neues <p>. -->
+    <p>
+      Lehrkräfte melden planbare Abwesenheiten mindestens eine Woche vorher
+      im Sekretariat.
+    </p>
+    <p>
+      Bei Krankheit erfolgt die Meldung bis 7:00 Uhr telefonisch.
+    </p>
+
+    <!-- <br> nur für Zeilenumbrüche, die zum INHALT gehören (Adresse, Gedicht),
+         nicht, um Abstand zu erzeugen. Abstand macht CSS (margin). -->
+    <p>
+      Georg-Simon-Ohm-Berufskolleg<br>
+      Westerwaldstraße 92<br>
+      51105 Köln
+    </p>
+    <!-- @ende absaetze -->
+
+    <!-- @start betonung -->
+    <!-- Bedeutung vs. Aussehen:
+         <strong> = wichtig     (wird fett angezeigt)
+         <em>     = betont      (wird kursiv angezeigt, beim Vorlesen betont)
+         <b>, <i> = nur optisch, ohne Bedeutung – selten sinnvoll.
+         Faustregel: Willst du nur, dass es fett AUSSIEHT? → CSS.
+                     Ist es inhaltlich wichtig? → <strong>. -->
+    <p>
+      <strong>Achtung:</strong> Ohne Paraphe der Abteilungsleitung wird
+      der Antrag <em>nicht</em> bearbeitet.
+    </p>
+    <!-- @ende betonung -->
+
+    <!-- @start zitat-code -->
+    <!-- Weitere Text-Elemente mit Bedeutung -->
+    <blockquote>
+      <p>Vertretung ist Unterricht – nicht Beaufsichtigung.</p>
+    </blockquote>
+
+    <p>
+      Das Kürzel <abbr title="Abteilungsleitung">AL</abbr> wird im Formular
+      verwendet. Den Quelltext öffnest du mit <kbd>Strg</kbd> + <kbd>U</kbd>.
+      Ein Element im Code: <code>&lt;main&gt;</code>.
+    </p>
+    <!-- Sonderzeichen: < und > im Text als &lt; und &gt; schreiben,
+         sonst hält der Browser sie für Tags. & schreibt man &amp; -->
+    <!-- @ende zitat-code -->
+  </main>
+</body>
+
+</html>
