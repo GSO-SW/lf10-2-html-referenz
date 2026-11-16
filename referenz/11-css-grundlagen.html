@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>11 CSS-Grundlagen · HTML-Referenz</title>
+
+  <!-- @start css-einbinden-extern -->
+  <!-- EMPFOHLEN: CSS in eine eigene Datei auslagern und im <head> verlinken.
+       Vorteile: eine Datei für alle Seiten, der Browser speichert sie zwischen,
+       HTML (Bedeutung) und CSS (Aussehen) bleiben getrennt.
+       Mehrere Dateien? Reihenfolge zählt: Spätere Dateien überschreiben frühere. -->
+  <link rel="stylesheet" href="css/basis.css">
+  <link rel="stylesheet" href="css/11-grundlagen.css">
+  <!-- @ende css-einbinden-extern -->
+
+  <!-- @start css-einbinden-style -->
+  <!-- MÖGLICH: CSS im <style>-Element im <head>. Gilt nur für DIESE Seite.
+       Sinnvoll für schnelle Experimente oder eine einzelne Demo-Seite.
+       Hinweis: type="text/css" braucht man seit HTML5 nicht mehr. -->
+  <style>
+    .nur-hier {
+      border-left: 0.4rem solid var(--farbe-primaer);
+      padding-left: 0.75rem;
+    }
+  </style>
+  <!-- @ende css-einbinden-style -->
+</head>
+
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+  <header>
+    <p><a href="index.html">← Zur Übersicht</a></p>
+  </header>
+
+  <main id="inhalt">
+    <h1>CSS-Grundlagen: Regeln schreiben und einbinden</h1>
+    <p>
+      HTML sagt, <strong>was</strong> etwas ist. CSS (Cascading Style Sheets)
+      regelt, <strong>wie</strong> es aussieht. Öffne neben dieser Seite auch
+      <code>css/11-grundlagen.css</code> im Editor.
+    </p>
+
+    <!-- @start css-regel-html -->
+    <h2>Aufbau einer CSS-Regel</h2>
+    <p>Jede Regel besteht aus einem <strong>Selektor</strong> (wen?) und einem
+      <strong>Deklarationsblock</strong> (was?). Eine Deklaration ist ein Paar aus
+      <strong>Eigenschaft</strong> und <strong>Wert</strong>, abgeschlossen mit
+      einem Semikolon.</p>
+    <pre><code>h2 {                       ← Selektor
+  color: #0b5cad;          ← Deklaration: Eigenschaft: Wert;
+  font-size: 1.5rem;
+}                          ← Ende des Deklarationsblocks</code></pre>
+    <p class="regel-beispiel">Dieser Absatz wird durch die Regel
+      <code>.regel-beispiel</code> gestaltet.</p>
+    <!-- @ende css-regel-html -->
+
+    <h2>Drei Wege, CSS einzubinden</h2>
+    <p class="nur-hier">Dieser Absatz nutzt eine Regel aus dem
+      <code>&lt;style&gt;</code>-Element im Kopf dieser Seite.</p>
+
+    <!-- @start css-einbinden-inline -->
+    <!-- NICHT EMPFOHLEN: CSS direkt im style-Attribut.
+         Probleme: Gilt nur für dieses eine Element, lässt sich nicht
+         wiederverwenden und schlägt fast jede Regel aus dem Stylesheet
+         (höchste Spezifität, siehe 13-kaskade.html).
+         Ein Farbwechsel im Corporate Design müsste in JEDER Datei erfolgen. -->
+    <p style="font-style: italic">Dieser Absatz ist per style-Attribut kursiv.
+      So bitte nicht im Projekt.</p>
+    <!-- @ende css-einbinden-inline -->
+
+    <!-- @start css-einbinden-vergleich -->
+    <table>
+      <caption>Einbindungsarten im Vergleich</caption>
+      <thead>
+        <tr>
+          <th scope="col">Art</th>
+          <th scope="col">Schreibweise</th>
+          <th scope="col">Gilt für</th>
+          <th scope="col">Einsatz</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Extern</th>
+          <td><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></td>
+          <td>alle Seiten, die die Datei verlinken</td>
+          <td>Standard im Projekt</td>
+        </tr>
+        <tr>
+          <th scope="row">Im Kopf</th>
+          <td><code>&lt;style&gt; … &lt;/style&gt;</code></td>
+          <td>nur diese Seite</td>
+          <td>Experimente, Einzelseiten</td>
+        </tr>
+        <tr>
+          <th scope="row">Inline</th>
+          <td><code>style="…"</code></td>
+          <td>nur dieses Element</td>
+          <td>vermeiden</td>
+        </tr>
+        <tr>
+          <th scope="row">Import</th>
+          <td><code>@import url("x.css");</code></td>
+          <td>wie die importierende Datei</td>
+          <td>nur ganz oben in einer CSS-Datei, lädt langsamer</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- @ende css-einbinden-vergleich -->
+
+    <h2>Wenn eine Regel nicht wirkt</h2>
+    <p>Fehlerhafte Deklarationen ignoriert der Browser stillschweigend. Typische
+      Ursachen findest du im Stylesheet unter <code>css-fehler</code>.
+      Prüfen kannst du dein CSS mit dem
+      <a href="https://jigsaw.w3.org/css-validator/">CSS-Validator des W3C</a>
+      und in den Entwicklertools (<kbd>F12</kbd>), siehe 13-kaskade.html.</p>
+  </main>
+</body>
+
+</html>

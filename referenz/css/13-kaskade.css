@@ -1,0 +1,62 @@
+/* ==========================================================================
+   13-kaskade.css – Kaskade, Spezifität, Vererbung
+   ========================================================================== */
+
+/* @start kaskade-reihenfolge */
+/* Gleiche Spezifität (beide 0,1,0) → die SPÄTERE Regel gewinnt.
+   Der zweite Absatz auf Seite 13 ist deshalb grün, nicht orange. */
+.hinweis {
+  color: #a34700;
+}
+
+.hinweis {
+  color: #1e6b35;
+}
+/* @ende kaskade-reihenfolge */
+
+/* @start kaskade-spezifitaet */
+/* Höhere Spezifität gewinnt, EGAL wo die Regel steht.
+   #frage (1,0,0) schlägt .hinweis (0,1,0), obwohl .hinweis später kommt.
+   Genau so entstehen Fehler wie „Meine Farbe wirkt nicht!“.
+   Lösung: Spezifität niedrig halten → Klassen statt IDs, kurze Selektoren. */
+#frage {
+  color: var(--farbe-primaer);
+}
+
+.demo .hinweis {
+  font-weight: 600;                /* 0,2,0 – gilt für beide Absätze */
+}
+/* @ende kaskade-spezifitaet */
+
+/* @start kaskade-important */
+/* !important hebt eine Deklaration über alle normalen Regeln.
+   Klingt praktisch, ist aber eine Sackgasse: Überschreiben geht dann nur
+   noch mit einem weiteren !important. Im Projekt: NICHT verwenden.
+   (Ausnahme in der Praxis: Hilfsklassen wie .visually-hidden.)
+   Beispiel, auskommentiert:
+   .hinweis { color: red !important; }                                   */
+/* @ende kaskade-important */
+
+/* @start kaskade-vererbung */
+/* Vererbung: Manche Eigenschaften gibt ein Element an seine Kinder weiter.
+   Erben:      color, font-family, font-size, line-height, text-align …
+   Erben NICHT: margin, padding, border, background, width, height …
+   Darum reicht EINE Regel für die Schrift auf body – nicht auf jedem p. */
+.demo {
+  font-family: Georgia, "Times New Roman", serif;   /* erben alle p in .demo */
+  border-color: var(--farbe-primaer);                /* erbt KEIN Kind */
+}
+/* @ende kaskade-vererbung */
+
+/* @start kaskade-inherit */
+/* Vererbung erzwingen oder zurücksetzen:
+   inherit  → Wert vom Elternelement übernehmen
+   initial  → Startwert laut CSS-Standard
+   Formularfelder erben die Schrift NICHT automatisch, deshalb: */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+/* @ende kaskade-inherit */

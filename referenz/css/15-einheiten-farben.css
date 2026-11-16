@@ -1,0 +1,71 @@
+/* ==========================================================================
+   15-einheiten-farben.css – Einheiten, Farben, Variablen, Schriften
+   ========================================================================== */
+
+/* @start css-variablen-designsystem */
+/* CSS-Variablen (Custom Properties) bilden das „Designsystem“ des Projekts.
+   Festlegen in :root, verwenden mit var(--name).
+   Corporate Design ändert sich? → nur HIER eine Zeile ändern.
+   Namen nach Aufgabe wählen (--farbe-primaer), nicht nach Farbe (--blau). */
+:root {
+  --farbe-akzent: #9b1b30;          /* Kontrast zu Weiß 8,1 : 1 */
+  --abstand-klein: 0.5rem;
+  --abstand-gross: 2rem;
+}
+
+.farbe-primaer {
+  background: var(--farbe-primaer);
+  color: #ffffff;
+}
+
+/* Rückfallwert, falls die Variable fehlt: var(--name, Ersatzwert) */
+.farbfelder li {
+  padding: var(--abstand-klein, 0.5rem);
+  margin-block-end: var(--abstand-klein);
+  list-style: none;
+}
+/* @ende css-variablen-designsystem */
+
+/* @start farben-schreibweisen */
+/* Vier gleichwertige Schreibweisen für dasselbe Blau:
+   #0b5cad                 Hex (am häufigsten)
+   rgb(11 92 173)          Rot, Grün, Blau (0–255)
+   rgb(11 92 173 / 50%)    mit Transparenz
+   hsl(210 88% 36%)        Farbton, Sättigung, Helligkeit: gut zum Abstufen
+   Farbnamen (red, white) gehen auch, sind aber selten markengenau. */
+.farbe-gut {
+  color: #1d1d1f;
+  background: #ffffff;
+  border: 1px solid var(--farbe-rahmen);
+}
+
+.farbe-schlecht {
+  color: #999999;                   /* zu hell: verletzt WCAG 1.4.3 */
+  background: #ffffff;
+  border: 1px solid var(--farbe-rahmen);
+}
+/* @ende farben-schreibweisen */
+
+/* @start em-kette */
+/* em multipliziert sich bei Verschachtelung:
+   16px · 0.8 · 0.8 · 0.8 ≈ 8,2px. rem bezieht sich immer auf die
+   Wurzel und verkettet sich nicht → für Schriftgrößen rem nehmen. */
+.em-aussen,
+.em-mitte,
+.em-innen {
+  font-size: 0.8em;
+  padding-left: 1rem;
+  border-left: 3px solid var(--farbe-rahmen);
+}
+/* @ende em-kette */
+
+/* @start schrift-stapel */
+/* Schriftstapel: Wunschschrift zuerst, am Ende IMMER eine generische
+   Familie (sans-serif, serif, monospace), falls die Schrift fehlt.
+   system-ui nimmt die Schrift des Betriebssystems: schnell und gut lesbar. */
+.schrift-beispiel {
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  line-height: 1.5;                 /* ohne Einheit: wächst mit der Schrift */
+  max-width: 65ch;                  /* angenehme Zeilenlänge */
+}
+/* @ende schrift-stapel */

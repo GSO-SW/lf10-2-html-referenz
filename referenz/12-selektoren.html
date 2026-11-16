@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>12 Selektoren · HTML-Referenz</title>
+  <link rel="stylesheet" href="css/basis.css">
+  <link rel="stylesheet" href="css/12-selektoren.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+  <header>
+    <p><a href="index.html">← Zur Übersicht</a></p>
+  </header>
+
+  <main id="inhalt">
+    <h1>Selektoren: Wen soll die Regel treffen?</h1>
+    <p>
+      Der Selektor entscheidet, für welche Elemente eine Regel gilt. Die Beispiele
+      unten sind farbig markiert. Öffne <code>css/12-selektoren.css</code> und
+      ändere die Selektoren: Was wird dann markiert?
+    </p>
+    <p>
+      <strong>Tipp:</strong> In den Entwicklertools (<kbd>F12</kbd>) findest du
+      unter „Elemente“ mit <kbd>Strg</kbd> + <kbd>F</kbd> alle Elemente, auf die
+      ein Selektor passt.
+    </p>
+
+    <!-- @start sel-klassen-html -->
+    <!-- Klassen im HTML: Ein Element darf mehrere Klassen haben (mit Leerzeichen
+         getrennt). Eine id darf es pro Seite nur EINMAL geben.
+         Klassen nach BEDEUTUNG benennen (.warnung, .news), nicht nach Aussehen
+         (.rot, .gross) – sonst passt der Name nach dem nächsten Redesign nicht mehr. -->
+    <section class="demo" aria-labelledby="demo-news">
+      <h2 id="demo-news">Demo: News aus dem EASY-AI-Projekt</h2>
+      <article class="news neu">
+        <h3>Treffen in Valencia</h3>
+        <p class="datum">12.11.2026</p>
+        <p>Die Teams aus Italien, Spanien und der Türkei stellen ihre Prototypen vor.</p>
+        <p>Mehr im <a href="#protokoll">Protokoll</a>.</p>
+      </article>
+      <article class="news">
+        <h3>Quiz „KI im Alltag“ online</h3>
+        <p class="datum">03.11.2026</p>
+        <p>Testen Sie Ihr Wissen in zehn Fragen.</p>
+        <p>Zum <a href="https://example.org/quiz">Quiz „KI im Alltag“</a></p>
+      </article>
+      <p id="protokoll">Alle Termine ohne Gewähr.</p>
+    </section>
+    <!-- @ende sel-klassen-html -->
+
+    <!-- @start sel-tabelle -->
+    <h2>Übersicht: Selektoren und ihre Spezifität</h2>
+    <p>Die Spezifität (Gewicht) wird als (IDs, Klassen, Elemente) gezählt.
+      Mehr dazu in <a href="13-kaskade.html">13 Kaskade</a>.</p>
+    <div class="tabelle-scroll">
+      <table>
+        <caption>Die wichtigsten Selektoren</caption>
+        <thead>
+          <tr>
+            <th scope="col">Selektor</th>
+            <th scope="col">Trifft …</th>
+            <th scope="col">Spezifität</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>p</code></td><td>alle p-Elemente (Typselektor)</td><td>0,0,1</td></tr>
+          <tr><td><code>.news</code></td><td>alle Elemente mit class="news"</td><td>0,1,0</td></tr>
+          <tr><td><code>#protokoll</code></td><td>das eine Element mit id="protokoll"</td><td>1,0,0</td></tr>
+          <tr><td><code>h2, h3</code></td><td>alle h2 UND alle h3 (Gruppe)</td><td>je 0,0,1</td></tr>
+          <tr><td><code>article p</code></td><td>p irgendwo innerhalb von article (Nachfahre)</td><td>0,0,2</td></tr>
+          <tr><td><code>section &gt; p</code></td><td>p, die DIREKT in section liegen (Kind)</td><td>0,0,2</td></tr>
+          <tr><td><code>.datum + p</code></td><td>das p direkt nach .datum (Nachbar)</td><td>0,1,1</td></tr>
+          <tr><td><code>h3 ~ p</code></td><td>alle p nach einem h3 auf gleicher Ebene (Geschwister)</td><td>0,0,2</td></tr>
+          <tr><td><code>a[href^="https"]</code></td><td>Links, deren href mit https beginnt (Attribut)</td><td>0,1,1</td></tr>
+          <tr><td><code>a:hover</code></td><td>Links, über denen die Maus ist (Pseudoklasse)</td><td>0,1,1</td></tr>
+          <tr><td><code>p::first-line</code></td><td>die erste Zeile von p (Pseudoelement)</td><td>0,0,2</td></tr>
+          <tr><td><code>article.neu</code></td><td>article MIT Klasse neu (kein Leerzeichen!)</td><td>0,1,1</td></tr>
+          <tr><td><code>article .neu</code></td><td>Elemente mit Klasse neu IN einem article</td><td>0,1,1</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- @ende sel-tabelle -->
+
+    <!-- @start sel-zustaende-html -->
+    <h2>Zustände ausprobieren</h2>
+    <!-- Pseudoklassen reagieren auf Zustände, die nicht im HTML stehen:
+         Maus darüber, Tastaturfokus, ungültige Eingabe, erstes Kind … -->
+    <form class="demo" action="#" method="post">
+      <label for="demo-mail">E-Mail (tippe etwas Ungültiges und verlasse das Feld)</label>
+      <input type="email" id="demo-mail" name="mail" required>
+      <p><button class="button" type="button">Mit Tab hierher springen</button></p>
+    </form>
+    <!-- @ende sel-zustaende-html -->
+  </main>
+</body>
+
+</html>

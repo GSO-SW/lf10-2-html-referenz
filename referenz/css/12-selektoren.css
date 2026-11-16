@@ -1,0 +1,129 @@
+/* ==========================================================================
+   12-selektoren.css – alle wichtigen Selektoren mit Beispiel
+   Jede Regel markiert Elemente der Demo auf Seite 12. Probier es aus:
+   Selektor ändern, speichern, im Browser schauen, was jetzt markiert ist.
+   ========================================================================== */
+
+/* @start sel-typ */
+/* Typselektor: trifft ALLE Elemente dieses Typs.
+   Gut für Grundeinstellungen (body, h1, a), schlecht für Einzelfälle. */
+h3 {
+  margin-block: 0.25rem;
+}
+/* @ende sel-typ */
+
+/* @start sel-klasse */
+/* Klassenselektor: Punkt + Klassenname. Das wichtigste Werkzeug im Projekt:
+   wiederverwendbar, gut lesbar, niedrige Spezifität (0,1,0).
+   Achtung: .News passt NICHT auf class="news" (Groß-/Kleinschreibung zählt). */
+.news {
+  border-left: 0.3rem solid var(--farbe-primaer);
+  padding-left: 0.75rem;
+  margin-block-end: var(--abstand);
+}
+/* @ende sel-klasse */
+
+/* @start sel-id */
+/* ID-Selektor: Raute + id. Sehr hohe Spezifität (1,0,0) – schwer zu
+   überschreiben. Darum IDs fürs Styling vermeiden und nur für Sprungziele,
+   label for="…" und JavaScript nutzen. Hier nur zur Demonstration. */
+#protokoll {
+  font-style: italic;
+}
+/* @ende sel-id */
+
+/* @start sel-gruppe */
+/* Gruppe: mehrere Selektoren mit Komma, EINE Deklaration für alle.
+   Spart Wiederholungen (gleiche Schrift für h2 und h3). */
+.demo h2,
+.demo h3 {
+  color: var(--farbe-primaer-dunkel);
+}
+/* @ende sel-gruppe */
+
+/* @start sel-nachfahre */
+/* Nachfahre (Leerzeichen): p IRGENDWO innerhalb von .news, egal wie tief. */
+.news p {
+  margin-block: 0.25rem;
+}
+/* @ende sel-nachfahre */
+
+/* @start sel-kind */
+/* Kind (>): nur DIREKTE Kinder. section > p trifft „Alle Termine …“,
+   aber nicht die p in den articles (die sind Enkel). */
+.demo > p {
+  font-size: 0.9375rem;
+}
+/* @ende sel-kind */
+
+/* @start sel-nachbar */
+/* Nachbar (+): das Element, das DIREKT danach folgt, auf derselben Ebene. */
+.datum + p {
+  font-weight: 600;
+}
+/* @ende sel-nachbar */
+
+/* @start sel-geschwister */
+/* Geschwister (~): ALLE folgenden Elemente auf derselben Ebene. */
+h3 ~ .datum {
+  color: #4a4a4f;
+  font-size: 0.9375rem;
+}
+/* @ende sel-geschwister */
+
+/* @start sel-attribut */
+/* Attributselektoren: nach Attributen und ihren Werten auswählen.
+   [attr]         Attribut vorhanden        input[required]
+   [attr="wert"]  genau dieser Wert         a[aria-current="page"]
+   [attr^="x"]    beginnt mit x             a[href^="https"]
+   [attr$=".pdf"] endet mit .pdf            a[href$=".pdf"]          */
+.demo a[href^="https"]::after {
+  content: " (extern)";
+  font-size: 0.8em;
+}
+/* @ende sel-attribut */
+
+/* @start sel-pseudoklassen */
+/* Pseudoklassen (:) beschreiben ZUSTÄNDE oder POSITIONEN:
+   :hover          Maus darüber       → nie die einzige Rückmeldung (Touch, Tastatur!)
+   :focus-visible  Tastaturfokus      → immer gestalten, nie entfernen
+   :user-invalid   ungültige Eingabe, nachdem man das Feld verlassen hat
+   :first-child, :last-child, :nth-child(2n)  Position unter Geschwistern */
+.news:hover {
+  background: var(--farbe-flaeche);
+}
+
+input:user-invalid {
+  border-color: var(--farbe-fehler);
+}
+
+.news p:last-child {
+  margin-block-end: 0;
+}
+/* @ende sel-pseudoklassen */
+
+/* @start sel-pseudoelemente */
+/* Pseudoelemente (::) gestalten TEILE eines Elements oder fügen
+   Deko-Inhalt ein (::before, ::after mit content).
+   Wichtig: Inhalt aus content wird von Screenreadern nicht zuverlässig
+   vorgelesen. Darum NUR Dekoration, nie wichtige Information. */
+.neu h3::before {
+  content: "● ";
+  color: var(--farbe-fehler);
+}
+/* @ende sel-pseudoelemente */
+
+/* @start sel-modern */
+/* Moderne Selektoren (für Fortgeschrittene, alle aktuellen Browser):
+   :is(a, b)    kürzt Gruppen ab, Spezifität = die höchste in der Klammer
+   :where(a, b) wie :is, aber Spezifität 0 → leicht überschreibbar
+   :has(x)      „Eltern-Selektor“: Element, das x enthält
+   Beispiel: ein Feld, das ein ungültiges input enthält, rot umranden. */
+:where(.demo) :is(h2, h3) {
+  letter-spacing: 0.01em;
+}
+
+form:has(input:user-invalid) {
+  border-color: var(--farbe-fehler);
+}
+/* @ende sel-modern */

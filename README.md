@@ -1,8 +1,8 @@
-# HTML-Referenz
+# HTML- und CSS-Referenz
 
 Georg-Simon-Ohm-Berufskolleg · Fachinformatik Anwendungsentwicklung
 
-Dein Nachschlagewerk für HTML: kommentierte, funktionierende Beispiele statt
+Dein Nachschlagewerk für HTML und CSS: kommentierte, funktionierende Beispiele statt
 langer Tag-Listen.
 
 ## 👉 Du hast eine Frage? → [NACHSCHLAGEN.md](NACHSCHLAGEN.md)
@@ -15,7 +15,7 @@ Link, der direkt auf die passende **Datei und Zeile** springt.
 | | |
 |---|---|
 | [`NACHSCHLAGEN.md`](NACHSCHLAGEN.md) | Fragen → Code-Stelle (das „Cheat Sheet“) |
-| [`referenz/`](referenz/) | 10 Beispielseiten + Stylesheet. Die Erklärungen stehen als Kommentare im Code. |
+| [`referenz/`](referenz/) | 15 Beispielseiten (01–10 HTML, 11–15 CSS) + Stylesheets. Die Erklärungen stehen als Kommentare im Code. |
 | [`referenz/index.html`](referenz/index.html) | Übersicht aller Beispielseiten |
 
 ## So benutzt du die Beispiele

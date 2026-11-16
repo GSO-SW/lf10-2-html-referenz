@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>13 Kaskade, Spezifität, Vererbung · HTML-Referenz</title>
+  <link rel="stylesheet" href="css/basis.css">
+  <link rel="stylesheet" href="css/13-kaskade.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+  <header>
+    <p><a href="index.html">← Zur Übersicht</a></p>
+  </header>
+
+  <main id="inhalt">
+    <h1>Kaskade: Welche Regel gewinnt?</h1>
+    <p>
+      Oft passen mehrere Regeln auf dasselbe Element. Dann entscheidet die
+      <strong>Kaskade</strong> (daher das C in CSS), welcher Wert gilt.
+    </p>
+
+    <!-- @start kaskade-ablauf -->
+    <h2>Die Kaskade in drei Fragen</h2>
+    <ol>
+      <li><strong>Herkunft und Wichtigkeit:</strong> Browser-Standard, dann dein
+        Stylesheet. <code>!important</code> dreht die Reihenfolge um.</li>
+      <li><strong>Spezifität:</strong> Der genauere Selektor gewinnt.
+        Inline-Style &gt; ID &gt; Klasse/Attribut/Pseudoklasse &gt; Element.</li>
+      <li><strong>Reihenfolge:</strong> Bei gleicher Spezifität gewinnt die
+        Regel, die <em>später</em> kommt.</li>
+    </ol>
+    <!-- @ende kaskade-ablauf -->
+
+    <!-- @start kaskade-demo-html -->
+    <section class="demo" aria-labelledby="demo-kaskade">
+      <h2 id="demo-kaskade">Demo: Welche Farbe hat der Text?</h2>
+      <p class="hinweis" id="frage">Ich bin ein Absatz mit Klasse und id.
+        Schau in css/13-kaskade.css nach, warum ich so aussehe.</p>
+      <p class="hinweis">Ich habe nur die Klasse.</p>
+    </section>
+    <!-- @ende kaskade-demo-html -->
+
+    <!-- @start spezifitaet-rechnen -->
+    <h2>Spezifität berechnen</h2>
+    <p>Zähle für jeden Selektor drei Zahlen: <strong>A</strong> = IDs,
+      <strong>B</strong> = Klassen, Attribute, Pseudoklassen,
+      <strong>C</strong> = Elemente, Pseudoelemente. Verglichen wird von links:
+      (1,0,0) schlägt (0,9,9).</p>
+    <div class="tabelle-scroll">
+      <table>
+        <caption>Beispiele zur Spezifität</caption>
+        <thead>
+          <tr>
+            <th scope="col">Selektor</th>
+            <th scope="col">A</th>
+            <th scope="col">B</th>
+            <th scope="col">C</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>p</code></td><td>0</td><td>0</td><td>1</td></tr>
+          <tr><td><code>main p</code></td><td>0</td><td>0</td><td>2</td></tr>
+          <tr><td><code>.wichtig</code></td><td>0</td><td>1</td><td>0</td></tr>
+          <tr><td><code>nav a[aria-current="page"]</code></td><td>0</td><td>1</td><td>2</td></tr>
+          <tr><td><code>#inhalt p</code></td><td>1</td><td>0</td><td>1</td></tr>
+          <tr><td><code>style="…"</code> im HTML</td><td colspan="3">schlägt alle Selektoren</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- @ende spezifitaet-rechnen -->
+
+    <!-- @start devtools -->
+    <h2>Detektivarbeit mit den Entwicklertools</h2>
+    <ol>
+      <li>Rechtsklick auf das Element → <strong>Untersuchen</strong>
+        (oder <kbd>F12</kbd>).</li>
+      <li>Im Bereich <strong>Styles</strong> stehen alle passenden Regeln,
+        die stärkste oben. <strong>Durchgestrichen</strong> heißt: überschrieben.</li>
+      <li>Ein <strong>Warndreieck</strong> zeigt eine ungültige Deklaration
+        (Tippfehler, fehlende Einheit, fehlendes Semikolon).</li>
+      <li>Rechts steht Datei und Zeile der Regel: Ein Klick springt hin.</li>
+      <li>Im Reiter <strong>Berechnet</strong> (Computed) siehst du den
+        Endwert und das Box-Modell.</li>
+      <li>Werte kannst du live ändern. Gefällt es dir, übertrage die Änderung
+        in deine CSS-Datei, sonst ist sie beim Neuladen weg.</li>
+    </ol>
+    <!-- @ende devtools -->
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>15 Einheiten, Farben, Variablen · HTML-Referenz</title>
+  <link rel="stylesheet" href="css/basis.css">
+  <link rel="stylesheet" href="css/15-einheiten-farben.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+  <header>
+    <p><a href="index.html">← Zur Übersicht</a></p>
+  </header>
+
+  <main id="inhalt">
+    <h1>Einheiten, Farben und CSS-Variablen</h1>
+
+    <!-- @start einheiten-tabelle -->
+    <h2>Welche Einheit wofür?</h2>
+    <div class="tabelle-scroll">
+      <table>
+        <caption>Häufige CSS-Einheiten</caption>
+        <thead>
+          <tr>
+            <th scope="col">Einheit</th>
+            <th scope="col">bezieht sich auf</th>
+            <th scope="col">gut für</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>px</code></td><td>CSS-Pixel (fest)</td><td>Rahmenstärken, feine Linien</td></tr>
+          <tr><td><code>rem</code></td><td>Schriftgröße des Wurzelelements (meist 16px)</td><td>Schriftgrößen, Abstände, Breiten</td></tr>
+          <tr><td><code>em</code></td><td>Schriftgröße des eigenen Elements</td><td>Abstände in Buttons (wachsen mit)</td></tr>
+          <tr><td><code>%</code></td><td>Elternelement</td><td>Breiten im Layout</td></tr>
+          <tr><td><code>vw</code> / <code>vh</code></td><td>1 % der Fensterbreite / -höhe</td><td>volle Bildschirmhöhe, Hero-Bereiche</td></tr>
+          <tr><td><code>ch</code></td><td>Breite der Ziffer 0</td><td>Zeilenlänge: <code>max-width: 65ch</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Faustregel: <strong>Schrift in rem</strong>. Wer im Browser eine
+      größere Schrift einstellt (z. B. wegen einer Sehschwäche), bekommt sie dann
+      auch. Mit <code>px</code> bleibt die Schrift starr.</p>
+    <!-- @ende einheiten-tabelle -->
+
+    <!-- @start em-kette-html -->
+    <h2>Die em-Falle</h2>
+    <div class="em-aussen">
+      Außen: 0.8em
+      <div class="em-mitte">
+        Mitte: 0.8em von außen
+        <div class="em-innen">Innen: 0.8em von der Mitte – schon sehr klein</div>
+      </div>
+    </div>
+    <!-- @ende em-kette-html -->
+
+    <!-- @start farben-html -->
+    <h2>Farben und Kontrast</h2>
+    <ul class="farbfelder">
+      <li class="farbe-gut">Text #1d1d1f auf Weiß · 16,8 : 1 ✔</li>
+      <li class="farbe-primaer">Weiß auf #0b5cad · 6,7 : 1 ✔</li>
+      <li class="farbe-schlecht">Text #999999 auf Weiß · 2,8 : 1 ✘</li>
+    </ul>
+    <p>WCAG 2.2 Stufe AA verlangt mindestens <strong>4,5 : 1</strong> für
+      normalen Text, <strong>3 : 1</strong> für großen Text (ab 24px bzw.
+      19px fett) und für Rahmen von Bedienelementen.
+      Prüfen: Entwicklertools (Farbwähler zeigt den Kontrast) oder
+      <a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker</a>.</p>
+    <!-- @ende farben-html -->
+  </main>
+</body>
+
+</html>

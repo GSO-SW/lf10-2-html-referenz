@@ -1,0 +1,34 @@
+/* ==========================================================================
+   11-grundlagen.css – Aufbau von CSS-Regeln
+   Wird NACH basis.css geladen und ergänzt sie nur für Seite 11.
+   ========================================================================== */
+
+/* @start css-regel */
+/* Selektor { Eigenschaft: Wert; Eigenschaft: Wert; }
+   - Jede Deklaration endet mit ;  (beim letzten Wert optional, aber Pflicht im Kurs)
+   - Mehrere Werte einer Eigenschaft: mit Leerzeichen (padding) oder Komma (font-family)
+   - Groß-/Kleinschreibung: Eigenschaften egal, Klassennamen und IDs NICHT */
+.regel-beispiel {
+  color: var(--farbe-primaer);
+  font-weight: 600;
+  padding: 0.5rem 1rem;            /* oben/unten 0.5rem, links/rechts 1rem */
+  background: var(--farbe-flaeche);
+}
+/* @ende css-regel */
+
+/* @start css-kommentare */
+/* Kommentare stehen zwischen Schrägstrich-Stern und Stern-Schrägstrich.
+   // ist in CSS KEIN Kommentar und macht die nächste Regel kaputt.
+   Gliedere große Stylesheets mit Kommentar-Überschriften:
+   1. Variablen  2. Grundlayout  3. Bereiche  4. Komponenten  5. Zustände */
+/* @ende css-kommentare */
+
+/* @start css-fehler */
+/* Häufige Fehler – der Browser ignoriert die Deklaration OHNE Meldung:
+   color: #0b5cad          ← Semikolon fehlt: auch die NÄCHSTE Zeile wird ungültig
+   padding: 10;            ← Einheit fehlt (nur bei 0 darf sie fehlen)
+   backround-color: red;   ← Tippfehler im Eigenschaftsnamen
+   .Button { … }           ← passt nicht auf class="button" (case-sensitive)
+   @import mitten im Code  ← wird ignoriert, @import muss ganz oben stehen
+   In den DevTools erscheinen solche Zeilen durchgestrichen mit Warndreieck. */
+/* @ende css-fehler */

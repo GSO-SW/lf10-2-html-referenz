@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>14 Box-Modell · HTML-Referenz</title>
+  <link rel="stylesheet" href="css/basis.css">
+  <link rel="stylesheet" href="css/14-boxmodell.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+  <header>
+    <p><a href="index.html">← Zur Übersicht</a></p>
+  </header>
+
+  <main id="inhalt">
+    <h1>Box-Modell: Jedes Element ist ein Rechteck</h1>
+
+    <!-- @start box-teile-html -->
+    <h2>Die vier Schichten einer Box</h2>
+    <p>Von innen nach außen: <strong>content</strong> (Inhalt),
+      <strong>padding</strong> (Innenabstand, hat die Hintergrundfarbe),
+      <strong>border</strong> (Rahmen), <strong>margin</strong> (Außenabstand,
+      immer durchsichtig).</p>
+    <div class="box-aussen">
+      <p class="box">Inhalt · padding 1rem · border 4px · margin 1.5rem</p>
+    </div>
+    <p>Untersuche die Box mit den Entwicklertools (<kbd>F12</kbd> → Berechnet):
+      Dort ist das Box-Modell als Grafik zu sehen.</p>
+    <!-- @ende box-teile-html -->
+
+    <!-- @start box-sizing-html -->
+    <h2>Warum ragt mein Eingabefeld heraus?</h2>
+    <div class="vergleich">
+      <p class="breite-content">width: 100% + padding + border
+        (box-sizing: content-box) → zu breit</p>
+      <p class="breite-border">width: 100% inklusive padding und border
+        (box-sizing: border-box) → passt</p>
+    </div>
+    <!-- @ende box-sizing-html -->
+
+    <!-- @start box-display-html -->
+    <h2>Block, Inline, Inline-Block</h2>
+    <p>
+      <span class="inline">span ist inline</span>
+      <span class="inline">und läuft im Text mit.</span>
+      Breite und Höhe wirken bei Inline-Elementen nicht.
+      <a class="button" href="#inhalt">Inline-Block</a> verhält sich wie ein Wort,
+      nimmt aber Breite, Höhe und Abstände an.
+    </p>
+    <ul>
+      <li><strong>block</strong> (h1–h6, p, ul, section, div …): neue Zeile,
+        so breit wie möglich.</li>
+      <li><strong>inline</strong> (a, strong, span, img …): im Textfluss,
+        so breit wie der Inhalt.</li>
+      <li><strong>inline-block</strong>: im Textfluss, aber Maße möglich
+        (z. B. Buttons).</li>
+      <li>Ändern mit <code>display</code>. Die Bedeutung des Elements
+        ändert sich dadurch nicht.</li>
+    </ul>
+    <!-- @ende box-display-html -->
+  </main>
+</body>
+
+</html>

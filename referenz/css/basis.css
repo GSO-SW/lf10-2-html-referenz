@@ -271,3 +271,11 @@ pre {
   border-radius: var(--radius);
   overflow-x: auto;
 }
+
+/* Ergänzung für die CSS-Seiten 11–15: gestrichelte Demo-Fläche */
+.demo {
+  border: 2px dashed var(--farbe-rahmen);
+  border-radius: var(--radius);
+  padding: var(--abstand);
+  margin-block: var(--abstand);
+}

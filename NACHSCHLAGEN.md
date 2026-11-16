@@ -106,7 +106,7 @@ kommentierten, funktionierenden Beispiel.
 | … sende ich ein Formular ab? | [submit / reset](referenz/07-formulare.html#L148-L154) |
 | … und warum kein `<div onclick>`? | [Antipattern](referenz/08-buttons.html#L71-L75) |
 
-## 9 · CSS-Grundlagen (nur das Nötigste)
+## 9 · CSS-Grundlagen (Kurzfassung, ausführlich ab Abschnitt 11)
 
 | Wie …? | Beispiel |
 |---|---|
@@ -126,12 +126,78 @@ kommentierten, funktionierenden Beispiel.
 | … teste ich selbst (Validator, Tastatur, Screenreader)? | [Werkzeuge](referenz/09-barrierefreiheit.html#L79-L92) |
 | … vermeide ich die häufigsten Fehler? | [Top-Fehler-Tabelle](referenz/10-gut-vs-schlecht.html#L72-L123) |
 
+## 11 · CSS schreiben und einbinden
+
+| Wie …? | Beispiel |
+|---|---|
+| … ist eine CSS-Regel aufgebaut? | [Selektor, Eigenschaft, Wert](referenz/css/11-grundlagen.css#L7-L16) · [Erklärung](referenz/11-css-grundlagen.html#L47-L57) |
+| … binde ich eine CSS-Datei ein (empfohlen)? | [`<link rel="stylesheet">`](referenz/11-css-grundlagen.html#L10-L15) |
+| … schreibe ich CSS nur für eine Seite? | [`<style>`](referenz/11-css-grundlagen.html#L19-L27) |
+| … und warum kein `style="…"`? | [Inline-CSS](referenz/11-css-grundlagen.html#L65-L71) |
+| … vergleiche ich die Einbindungsarten? | [Tabelle](referenz/11-css-grundlagen.html#L75-L111) |
+| … kommentiere und gliedere ich mein Stylesheet? | [Kommentare](referenz/css/11-grundlagen.css#L20-L23) |
+| … finde ich heraus, warum eine Regel nicht wirkt? | [typische Fehler](referenz/css/11-grundlagen.css#L27-L33) · [DevTools](referenz/13-kaskade.html#L77-L90) |
+
+## 12 · Selektoren
+
+| Wie …? | Beispiel |
+|---|---|
+| … gestalte ich alle Elemente eines Typs? | [Typselektor](referenz/css/12-selektoren.css#L8-L12) |
+| … gestalte ich mehrere bestimmte Elemente gleich? | [Klasse](referenz/css/12-selektoren.css#L16-L23) · [HTML mit Klassen](referenz/12-selektoren.html#L33-L52) |
+| … benenne ich Klassen sinnvoll? | [nach Bedeutung, nicht Aussehen](referenz/12-selektoren.html#L33-L52) |
+| … und warum keine IDs fürs Styling? | [ID-Selektor](referenz/css/12-selektoren.css#L27-L32) |
+| … gebe ich mehreren Selektoren dieselbe Regel? | [Gruppe mit Komma](referenz/css/12-selektoren.css#L36-L41) |
+| … wähle ich Elemente innerhalb eines Bereichs? | [Nachfahre (Leerzeichen)](referenz/css/12-selektoren.css#L45-L48) |
+| … wähle ich nur direkte Kinder? | [Kind `>`](referenz/css/12-selektoren.css#L52-L56) |
+| … wähle ich das nächste Element danach? | [Nachbar `+`](referenz/css/12-selektoren.css#L60-L63) · [Geschwister `~`](referenz/css/12-selektoren.css#L67-L71) |
+| … wähle ich nach Attributen (`type`, `href`, `aria-current`)? | [Attributselektor](referenz/css/12-selektoren.css#L75-L83) |
+| … gestalte ich Hover, Fokus und Fehlerzustände? | [Pseudoklassen](referenz/css/12-selektoren.css#L87-L102) · [ausprobieren](referenz/12-selektoren.html#L89-L96) |
+| … füge ich Deko vor oder nach einem Element ein? | [`::before` / `::after`](referenz/css/12-selektoren.css#L106-L113) |
+| … nutze ich `:is()`, `:where()` und `:has()`? | [moderne Selektoren](referenz/css/12-selektoren.css#L117-L128) |
+| … behalte ich den Überblick? | [Übersichtstabelle](referenz/12-selektoren.html#L56-L85) |
+
+## 13 · Kaskade, Spezifität, Vererbung
+
+| Wie …? | Beispiel |
+|---|---|
+| … entscheidet der Browser, welche Regel gewinnt? | [die Kaskade in drei Fragen](referenz/13-kaskade.html#L27-L35) |
+| … gewinnt bei gleicher Spezifität? | [die spätere Regel](referenz/css/13-kaskade.css#L6-L14) |
+| … berechne ich die Spezifität? | [Tabelle](referenz/13-kaskade.html#L48-L73) · [Beispiel im CSS](referenz/css/13-kaskade.css#L18-L28) |
+| … und warum kein `!important`? | [`!important`](referenz/css/13-kaskade.css#L32-L37) |
+| … welche Eigenschaften werden vererbt? | [Vererbung](referenz/css/13-kaskade.css#L41-L48) · [`inherit`](referenz/css/13-kaskade.css#L52-L61) |
+| … nutze ich die Entwicklertools (F12) zur Fehlersuche? | [DevTools-Anleitung](referenz/13-kaskade.html#L77-L90) |
+
+## 14 · Box-Modell
+
+| Wie …? | Beispiel |
+|---|---|
+| … setze ich Innen- und Außenabstände? | [padding, border, margin](referenz/css/14-boxmodell.css#L6-L22) · [Demo](referenz/14-boxmodell.html#L23-L32) |
+| … verhindere ich, dass Felder herausragen? | [`box-sizing`](referenz/css/14-boxmodell.css#L26-L50) · [Demo](referenz/14-boxmodell.html#L36-L42) |
+| … unterscheide ich block, inline, inline-block? | [`display`](referenz/css/14-boxmodell.css#L54-L60) · [Erklärung](referenz/14-boxmodell.html#L46-L63) |
+| … warum addieren sich Abstände nicht? | [Margin-Collapse](referenz/css/14-boxmodell.css#L64-L67) |
+| … zentriere ich einen Bereich? | [`margin-inline: auto`](referenz/css/14-boxmodell.css#L71-L75) |
+
+## 15 · Einheiten, Farben, Variablen
+
+| Wie …? | Beispiel |
+|---|---|
+| … wähle ich die richtige Einheit (px, rem, em, %)? | [Einheiten-Tabelle](referenz/15-einheiten-farben.html#L23-L46) |
+| … warum wird meine Schrift immer kleiner? | [em-Falle](referenz/css/15-einheiten-farben.css#L50-L59) · [Demo](referenz/15-einheiten-farben.html#L50-L57) |
+| … schreibe ich Farben (Hex, rgb, hsl)? | [Schreibweisen](referenz/css/15-einheiten-farben.css#L30-L46) |
+| … prüfe ich den Kontrast? | [Kontrast und WCAG](referenz/15-einheiten-farben.html#L61-L71) |
+| … lege ich ein Designsystem mit Variablen an? | [CSS-Variablen](referenz/css/15-einheiten-farben.css#L6-L26) · [Kurzfassung](referenz/css/basis.css#L11-L23) |
+| … wähle ich eine Schrift mit Ausweichschrift? | [Schriftstapel](referenz/css/15-einheiten-farben.css#L63-L70) |
+
+> **Layout (Flexbox, Grid, responsive Design, Bootstrap/Tailwind)** folgt in der nächsten Einheit.
+
 ---
 
 ## Weiterlesen
 
 - [MDN Web Docs (deutsch)](https://developer.mozilla.org/de/docs/Web/HTML) – die zuverlässigste Referenz
 - [W3C-Validator](https://validator.w3.org/) – prüft, ob dein HTML gültig ist
+- [MDN: CSS lernen (deutsch)](https://developer.mozilla.org/de/docs/Learn_web_development/Core/Styling_basics) – Einstieg in CSS
+- [CSS-Validator](https://jigsaw.w3.org/css-validator/) – prüft, ob dein CSS gültig ist
 - [WCAG-Überblick der W3C-WAI](https://www.w3.org/WAI/standards-guidelines/wcag/) – die Barrierefreiheits-Richtlinien
 
 **Fehlt eine Frage?** Lege ein Issue an oder ergänze sie per Pull Request –
