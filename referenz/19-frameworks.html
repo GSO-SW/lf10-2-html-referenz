@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>19 CSS-Frameworks · HTML-Referenz</title>
+  <link rel="stylesheet" href="css/basis.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+  <header>
+    <p><a href="index.html">← Zur Übersicht</a></p>
+  </header>
+
+  <main id="inhalt">
+    <h1>CSS-Frameworks: Bootstrap und Tailwind</h1>
+    <p>Ein Framework bringt fertiges CSS mit. Du schreibst weniger eigenes CSS,
+      musst aber die Klassen des Frameworks kennen. Die Beispiele hier sind nur
+      Code; ausprobieren kannst du sie in den Demo-Dateien 4 und 5.</p>
+
+    <!-- @start fw-vergleich -->
+    <div class="tabelle-scroll" tabindex="0" role="region" aria-label="Vergleich, waagerecht scrollbar">
+      <table>
+        <caption>Eigenes CSS, Bootstrap und Tailwind im Vergleich</caption>
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Eigenes CSS</th>
+            <th scope="col">Bootstrap</th>
+            <th scope="col">Tailwind</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Idee</th><td>alles selbst</td><td>fertige Komponenten und 12-Spalten-Raster</td><td>kleine Hilfsklassen für jede Eigenschaft</td></tr>
+          <tr><th scope="row">Aussehen</th><td>frei</td><td>schnell einheitlich, oft „typisch Bootstrap“</td><td>frei</td></tr>
+          <tr><th scope="row">Lernaufwand</th><td>CSS</td><td>Klassen und Komponenten</td><td>viele Klassennamen</td></tr>
+          <tr><th scope="row">Einbinden</th><td>&lt;link&gt;</td><td>&lt;link&gt; per CDN</td><td>Build-Werkzeug (CDN nur zum Testen)</td></tr>
+          <tr><th scope="row">Responsiv</th><td>Media Queries</td><td>col-md-6, col-lg-3 …</td><td>md:, lg: vor der Klasse</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- @ende fw-vergleich -->
+
+    <!-- @start fw-bootstrap -->
+    <h2>Bootstrap: Raster aus 12 Spalten</h2>
+    <pre><code>&lt;link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"&gt;
+
+&lt;div class="container"&gt;           &lt;!-- Inhalt begrenzt und zentriert --&gt;
+  &lt;div class="row g-3"&gt;            &lt;!-- Zeile, g-3 = Abstand --&gt;
+    &lt;div class="col-12 col-md-6 col-lg-3"&gt;…&lt;/div&gt;
+  &lt;/div&gt;                           &lt;!-- 12 = voll, 6 = halb, 3 = Viertel --&gt;
+&lt;/div&gt;</code></pre>
+    <p>Umbruchpunkte: sm 576px · md 768px · lg 992px · xl 1200px.
+      Doku: <a href="https://getbootstrap.com/docs/5.3/layout/grid/">getbootstrap.com</a></p>
+    <!-- @ende fw-bootstrap -->
+
+    <!-- @start fw-tailwind -->
+    <h2>Tailwind: Hilfsklassen und Präfixe</h2>
+    <pre><code>&lt;div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4"&gt;
+  &lt;article class="p-4 border-2 rounded"&gt;…&lt;/article&gt;
+&lt;/div&gt;
+
+grid          → display: grid
+gap-4         → gap: 1rem
+md:grid-cols-2 → ab 768px zwei Spalten (Mobile First)</code></pre>
+    <p>Doku: <a href="https://tailwindcss.com/docs/responsive-design">tailwindcss.com</a></p>
+    <!-- @ende fw-tailwind -->
+
+    <!-- @start fw-entscheiden -->
+    <h2>Entscheiden im Team</h2>
+    <ul>
+      <li>Wie viel eigenes CSS haben wir schon? Viel → eigenes CSS weiterführen.</li>
+      <li>Brauchen wir fertige Komponenten (Menü, Karten, Formulare)? → Bootstrap.</li>
+      <li>Wollen wir ein ganz eigenes Design ohne eigene CSS-Datei? → Tailwind.</li>
+      <li>Immer prüfen: Bleibt das HTML semantisch? Ist der Fokus sichtbar? Kontrast ok?</li>
+    </ul>
+    <!-- @ende fw-entscheiden -->
+  </main>
+</body>
+
+</html>

@@ -85,7 +85,9 @@ h3 ~ .datum {
 
 /* @start sel-pseudoklassen */
 /* Pseudoklassen (:) beschreiben ZUSTÄNDE oder POSITIONEN:
+   :link, :visited Link noch nicht / schon besucht
    :hover          Maus darüber       → nie die einzige Rückmeldung (Touch, Tastatur!)
+   :active         gerade angeklickt
    :focus-visible  Tastaturfokus      → immer gestalten, nie entfernen
    :user-invalid   ungültige Eingabe, nachdem man das Feld verlassen hat
    :first-child, :last-child, :nth-child(2n)  Position unter Geschwistern */

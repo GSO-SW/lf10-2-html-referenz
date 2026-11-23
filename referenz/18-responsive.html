@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <!-- @start viewport -->
+  <!-- Pflicht für jede responsive Seite: Das Handy soll in Gerätebreite anzeigen
+       und nicht eine Desktop-Seite verkleinern.
+       NIE user-scalable=no oder maximum-scale=1: Zoomen muss erlaubt sein (WCAG 1.4.4). -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- @ende viewport -->
+  <title>18 Responsive Design · HTML-Referenz</title>
+  <link rel="stylesheet" href="css/basis.css">
+  <link rel="stylesheet" href="css/18-responsive.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+  <header>
+    <p><a href="index.html">← Zur Übersicht</a></p>
+  </header>
+
+  <main id="inhalt">
+    <h1>Responsive Design: eine Seite für alle Geräte</h1>
+
+    <!-- @start responsiv-arten -->
+    <h2>Statisch, flüssig, responsiv</h2>
+    <ul>
+      <li><strong>Statisch:</strong> feste Breite in px. Auf dem Handy waagerecht scrollen.</li>
+      <li><strong>Flüssig:</strong> Breiten in %. Passt immer, wird auf dem Handy aber zu schmal.</li>
+      <li><strong>Responsiv:</strong> flüssig + Media Queries. Das Layout ändert sich an Umbruchpunkten.</li>
+    </ul>
+    <!-- @ende responsiv-arten -->
+
+    <!-- @start responsiv-demo-html -->
+    <h2>Demo: Spalten je nach Breite</h2>
+    <div class="spalten">
+      <p class="kasten">Handy: untereinander</p>
+      <p class="kasten">ab 40rem: zwei Spalten</p>
+      <p class="kasten">ab 64rem: drei Spalten</p>
+    </div>
+    <!-- @ende responsiv-demo-html -->
+
+    <!-- @start responsiv-testen -->
+    <h2>So testest du</h2>
+    <ol>
+      <li><kbd>F12</kbd> → Symbol „Gerätesymbolleiste“ (<kbd>Strg</kbd> + <kbd>Umschalt</kbd> + <kbd>M</kbd>) → Breite 375 und 320.</li>
+      <li>Fenster langsam schmaler ziehen: Wo bricht etwas? Dort braucht es einen Umbruchpunkt.</li>
+      <li>Zoom 400 % (<kbd>Strg</kbd> + <kbd>+</kbd>): kein waagerechtes Scrollen (WCAG 1.4.10).</li>
+      <li>Auf einem echten Handy öffnen (z. B. über den Live Server im selben WLAN).</li>
+    </ol>
+    <!-- @ende responsiv-testen -->
+  </main>
+</body>
+
+</html>

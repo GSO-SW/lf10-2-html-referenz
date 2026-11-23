@@ -1,0 +1,67 @@
+/* ==========================================================================
+   18-responsive.css – Media Queries, Mobile First, flexible Inhalte
+   ========================================================================== */
+
+/* @start media-mobile-first */
+/* Mobile First: Zuerst das Handy-Layout OHNE Media Query schreiben,
+   dann mit min-width für größere Bildschirme ERGÄNZEN.
+   Umbruchpunkte in rem, gewählt dort, wo der INHALT bricht – nicht nach Gerätenamen. */
+.spalten {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 40rem) {
+  .spalten {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .spalten {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+/* @ende media-mobile-first */
+
+/* @start media-nicht-verstecken */
+/* Inhalte auf dem Handy NICHT mit display: none verstecken – Handy-Nutzer
+   brauchen dieselben Informationen. Besser: anders anordnen (untereinander). */
+/* @ende media-nicht-verstecken */
+
+/* @start fluide-inhalte */
+/* Bilder und Videos nie breiter als ihr Platz */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Breite Tabelle: in einem Kasten scrollen statt die ganze Seite.
+   HTML: <div class="tabelle-scroll" tabindex="0" role="region" aria-label="…"> */
+.tabelle-scroll {
+  overflow-x: auto;
+}
+
+/* Feste Breiten vermeiden: max-width statt width */
+.inhalt-begrenzt {
+  max-width: 70rem;
+  margin-inline: auto;
+}
+/* @ende fluide-inhalte */
+
+/* @start touch-ziele */
+/* Auf dem Handy wird getippt: Klickflächen mind. 24 × 24 px (WCAG 2.5.8),
+   besser 44 × 44 px. Schrift in rem, nicht in vw (wächst sonst nicht mit dem Zoom). */
+.ziel {
+  min-height: 2.75rem;
+  padding: 0.6em 1.2em;
+}
+/* @ende touch-ziele */
+
+.kasten {
+  border: 2px solid var(--farbe-rahmen);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin: 0;
+}

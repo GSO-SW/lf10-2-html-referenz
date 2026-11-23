@@ -1,0 +1,61 @@
+/* ==========================================================================
+   17-grid.css – Grid: zwei Richtungen (Zeilen UND Spalten)
+   ========================================================================== */
+
+/* @start grid-spalten */
+/* grid-template-columns legt die Spalten fest.
+   fr = Anteil am freien Platz:  1fr 2fr → zweite Spalte doppelt so breit
+   repeat(3, 1fr)               → drei gleich breite Spalten */
+.beispiel-drei-spalten {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+/* @ende grid-spalten */
+
+/* @start grid-auto-fit */
+/* Der Profi-Trick: so viele Spalten, wie mit mind. 12rem hineinpassen.
+   Handy: 1 Spalte, Tablet: 2, Desktop: 4 – ganz ohne Media Query. */
+.raster {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 1rem;
+}
+/* @ende grid-auto-fit */
+
+/* @start grid-bereiche */
+/* grid-template-areas: das Layout als „Bild“ aus Namen.
+   Mobil (Standard): alles untereinander. Ab 48rem: Inhalt und Rand nebeneinander.
+   Die Reihenfolge im HTML bleibt gleich – wichtig für Tastatur und Screenreader. */
+.layout {
+  display: grid;
+  gap: 1rem;
+  grid-template-areas:
+    "kopf"
+    "inhalt"
+    "rand"
+    "fuss";
+}
+
+@media (min-width: 48rem) {
+  .layout {
+    grid-template-columns: 1fr 15rem;
+    grid-template-areas:
+      "kopf   kopf"
+      "inhalt rand"
+      "fuss   fuss";
+  }
+}
+
+.kopf   { grid-area: kopf; }
+.inhalt { grid-area: inhalt; min-height: 8rem; }
+.rand   { grid-area: rand; }
+.fuss   { grid-area: fuss; }
+/* @ende grid-bereiche */
+
+.kasten {
+  border: 2px solid var(--farbe-rahmen);
+  border-radius: var(--radius);
+  padding: 1rem;
+  background: var(--farbe-flaeche);
+}

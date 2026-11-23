@@ -1,0 +1,60 @@
+/* ==========================================================================
+   16-flexbox.css – Flexbox: eine Richtung (Zeile ODER Spalte)
+   ========================================================================== */
+
+/* @start flex-grundlagen */
+/* display: flex auf dem ELTERN-Element. Die Kinder ordnen sich dann an.
+   flex-direction: row (Standard, nebeneinander) | column (untereinander)
+   gap: Abstand zwischen den Kindern – kein margin-Gefummel nötig */
+.leiste {
+  display: flex;
+  gap: 0.5rem 1.5rem;              /* Zeilenabstand, Spaltenabstand */
+  list-style: none;
+  padding: 0;
+}
+/* @ende flex-grundlagen */
+
+/* @start flex-wrap */
+/* flex-wrap: wrap → reicht der Platz nicht, beginnt eine neue Zeile.
+   Ohne wrap quetschen sich die Kinder oder laufen aus dem Bildschirm. */
+.leiste {
+  flex-wrap: wrap;
+}
+/* @ende flex-wrap */
+
+/* @start flex-karten */
+/* flex: 1 1 12rem = wachsen | schrumpfen | Startbreite
+   Jede Karte ist mind. etwa 12rem breit; passt das nicht, rutscht sie in die
+   nächste Zeile. So entsteht ein responsives Layout OHNE Media Query. */
+.reihe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.reihe > * {
+  flex: 1 1 12rem;
+}
+/* @ende flex-karten */
+
+/* @start flex-ausrichten */
+/* Ausrichten:
+   justify-content → entlang der Hauptachse (bei row: waagerecht)
+                     flex-start | center | space-between | flex-end
+   align-items     → quer dazu (bei row: senkrecht)
+                     stretch | center | flex-start | flex-end */
+.mitte {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 10rem;
+  background: var(--farbe-flaeche);
+}
+/* @ende flex-ausrichten */
+
+.kasten {
+  border: 2px solid var(--farbe-rahmen);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin: 0;
+}

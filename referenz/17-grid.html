@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>17 Grid · HTML-Referenz</title>
+  <link rel="stylesheet" href="css/basis.css">
+  <link rel="stylesheet" href="css/17-grid.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+  <header>
+    <p><a href="index.html">← Zur Übersicht</a></p>
+  </header>
+
+  <main id="inhalt">
+    <h1>Grid: Zeilen und Spalten gleichzeitig</h1>
+
+    <!-- @start flex-oder-grid -->
+    <h2>Flexbox oder Grid?</h2>
+    <ul>
+      <li><strong>Flexbox</strong>: eine Richtung, der Inhalt bestimmt die Größe
+        (Menü, Buttonleiste).</li>
+      <li><strong>Grid</strong>: zwei Richtungen, das Raster bestimmt die Größe
+        (Seitenlayout, Kartenraster).</li>
+      <li>Beides kombinieren ist normal: Grid für die Seite, Flexbox im Kopfbereich.</li>
+    </ul>
+    <!-- @ende flex-oder-grid -->
+
+    <!-- @start grid-html -->
+    <h2>Kartenraster ohne Media Query</h2>
+    <div class="raster">
+      <article class="kasten">Eins</article>
+      <article class="kasten">Zwei</article>
+      <article class="kasten">Drei</article>
+      <article class="kasten">Vier</article>
+    </div>
+
+    <h2>Seitenlayout mit Bereichen</h2>
+    <div class="layout">
+      <div class="kasten kopf">header</div>
+      <div class="kasten inhalt">main</div>
+      <div class="kasten rand">aside</div>
+      <div class="kasten fuss">footer</div>
+    </div>
+    <!-- @ende grid-html -->
+  </main>
+</body>
+
+</html>

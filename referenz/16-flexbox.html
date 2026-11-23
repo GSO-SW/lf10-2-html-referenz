@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>16 Flexbox · HTML-Referenz</title>
+  <link rel="stylesheet" href="css/basis.css">
+  <link rel="stylesheet" href="css/16-flexbox.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+  <header>
+    <p><a href="index.html">← Zur Übersicht</a></p>
+  </header>
+
+  <main id="inhalt">
+    <h1>Flexbox: Elemente in einer Reihe anordnen</h1>
+    <p>Flexbox ordnet Elemente in <strong>einer Richtung</strong> an: nebeneinander
+      oder untereinander. Ideal für Menüs, Buttonleisten und Kartenreihen.
+      Ziehe das Browserfenster schmal und beobachte, was passiert.</p>
+
+    <!-- @start flex-html -->
+    <h2>Menü, das umbricht</h2>
+    <ul class="leiste">
+      <li><a href="#inhalt">Übersicht</a></li>
+      <li><a href="#inhalt">Antrag stellen</a></li>
+      <li><a href="#inhalt">Meine Anträge</a></li>
+      <li><a href="#inhalt">Hilfe</a></li>
+    </ul>
+
+    <h2>Kartenreihe</h2>
+    <div class="reihe">
+      <article class="kasten"><h3>Eins</h3><p>wächst mit</p></article>
+      <article class="kasten"><h3>Zwei</h3><p>wächst mit</p></article>
+      <article class="kasten"><h3>Drei</h3><p>wächst mit</p></article>
+    </div>
+
+    <h2>Zentrieren</h2>
+    <div class="mitte">
+      <p class="kasten">genau in der Mitte</p>
+    </div>
+    <!-- @ende flex-html -->
+  </main>
+</body>
+
+</html>
