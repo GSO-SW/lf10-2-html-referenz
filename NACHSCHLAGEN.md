@@ -136,7 +136,7 @@ kommentierten, funktionierenden Beispiel.
 | … und warum kein `style="…"`? | [Inline-CSS](referenz/11-css-grundlagen.html#L65-L71) |
 | … vergleiche ich die Einbindungsarten? | [Tabelle](referenz/11-css-grundlagen.html#L75-L111) |
 | … kommentiere und gliedere ich mein Stylesheet? | [Kommentare](referenz/css/11-grundlagen.css#L20-L23) |
-| … finde ich heraus, warum eine Regel nicht wirkt? | [typische Fehler](referenz/css/11-grundlagen.css#L27-L33) · [DevTools](referenz/13-kaskade.html#L77-L90) |
+| … finde ich heraus, warum eine Regel nicht wirkt? | [typische Fehler](referenz/css/11-grundlagen.css#L27-L33) · [DevTools](referenz/13-kaskade.html#L77-L92) |
 
 ## 12 · Selektoren
 
@@ -151,9 +151,9 @@ kommentierten, funktionierenden Beispiel.
 | … wähle ich nur direkte Kinder? | [Kind `>`](referenz/css/12-selektoren.css#L52-L56) |
 | … wähle ich das nächste Element danach? | [Nachbar `+`](referenz/css/12-selektoren.css#L60-L63) · [Geschwister `~`](referenz/css/12-selektoren.css#L67-L71) |
 | … wähle ich nach Attributen (`type`, `href`, `aria-current`)? | [Attributselektor](referenz/css/12-selektoren.css#L75-L83) |
-| … gestalte ich Hover, Fokus und Fehlerzustände? | [Pseudoklassen](referenz/css/12-selektoren.css#L87-L102) · [ausprobieren](referenz/12-selektoren.html#L89-L96) |
-| … füge ich Deko vor oder nach einem Element ein? | [`::before` / `::after`](referenz/css/12-selektoren.css#L106-L113) |
-| … nutze ich `:is()`, `:where()` und `:has()`? | [moderne Selektoren](referenz/css/12-selektoren.css#L117-L128) |
+| … gestalte ich Hover, Fokus und Fehlerzustände? | [Pseudoklassen](referenz/css/12-selektoren.css#L87-L104) · [ausprobieren](referenz/12-selektoren.html#L89-L96) |
+| … füge ich Deko vor oder nach einem Element ein? | [`::before` / `::after`](referenz/css/12-selektoren.css#L108-L115) |
+| … nutze ich `:is()`, `:where()` und `:has()`? | [moderne Selektoren](referenz/css/12-selektoren.css#L119-L130) |
 | … behalte ich den Überblick? | [Übersichtstabelle](referenz/12-selektoren.html#L56-L85) |
 
 ## 13 · Kaskade, Spezifität, Vererbung
@@ -165,7 +165,7 @@ kommentierten, funktionierenden Beispiel.
 | … berechne ich die Spezifität? | [Tabelle](referenz/13-kaskade.html#L48-L73) · [Beispiel im CSS](referenz/css/13-kaskade.css#L18-L28) |
 | … und warum kein `!important`? | [`!important`](referenz/css/13-kaskade.css#L32-L37) |
 | … welche Eigenschaften werden vererbt? | [Vererbung](referenz/css/13-kaskade.css#L41-L48) · [`inherit`](referenz/css/13-kaskade.css#L52-L61) |
-| … nutze ich die Entwicklertools (F12) zur Fehlersuche? | [DevTools-Anleitung](referenz/13-kaskade.html#L77-L90) |
+| … nutze ich die Entwicklertools (F12) zur Fehlersuche? | [DevTools-Anleitung](referenz/13-kaskade.html#L77-L92) |
 
 ## 14 · Box-Modell
 
@@ -188,7 +188,46 @@ kommentierten, funktionierenden Beispiel.
 | … lege ich ein Designsystem mit Variablen an? | [CSS-Variablen](referenz/css/15-einheiten-farben.css#L6-L26) · [Kurzfassung](referenz/css/basis.css#L11-L23) |
 | … wähle ich eine Schrift mit Ausweichschrift? | [Schriftstapel](referenz/css/15-einheiten-farben.css#L63-L70) |
 
-> **Layout (Flexbox, Grid, responsive Design, Bootstrap/Tailwind)** folgt in der nächsten Einheit.
+## 16 · Flexbox
+
+| Wie …? | Beispiel |
+|---|---|
+| … ordne ich Elemente nebeneinander an? | [`display: flex`, `gap`](referenz/css/16-flexbox.css#L6-L14) · [Demo](referenz/16-flexbox.html#L26-L44) |
+| … lasse ich ein Menü umbrechen? | [`flex-wrap`](referenz/css/16-flexbox.css#L18-L22) |
+| … baue ich eine Kartenreihe ohne Media Query? | [`flex: 1 1 12rem`](referenz/css/16-flexbox.css#L26-L37) |
+| … zentriere ich etwas? | [`justify-content`, `align-items`](referenz/css/16-flexbox.css#L41-L52) |
+
+## 17 · Grid
+
+| Wie …? | Beispiel |
+|---|---|
+| … entscheide ich: Flexbox oder Grid? | [Entscheidungshilfe](referenz/17-grid.html#L23-L30) |
+| … lege ich Spalten fest? | [`grid-template-columns`, `fr`](referenz/css/17-grid.css#L6-L13) |
+| … baue ich ein Raster, das sich selbst anpasst? | [`auto-fit` + `minmax`](referenz/css/17-grid.css#L17-L23) · [Demo](referenz/17-grid.html#L34-L48) |
+| … baue ich ein Seitenlayout mit Kopf, Inhalt, Rand, Fuß? | [`grid-template-areas`](referenz/css/17-grid.css#L27-L53) |
+
+## 18 · Responsive Design
+
+| Wie …? | Beispiel |
+|---|---|
+| … was heißt statisch, flüssig, responsiv? | [Überblick](referenz/18-responsive.html#L28-L33) |
+| … sorge ich dafür, dass das Handy richtig skaliert? | [`meta viewport`](referenz/18-responsive.html#L7-L10) |
+| … schreibe ich Media Queries (Mobile First)? | [`@media (min-width)`](referenz/css/18-responsive.css#L6-L24) · [Demo](referenz/18-responsive.html#L37-L42) |
+| … und warum nichts auf dem Handy verstecken? | [Hinweis](referenz/css/18-responsive.css#L28-L29) |
+| … verhindere ich zu breite Bilder und Tabellen? | [flexible Inhalte](referenz/css/18-responsive.css#L33-L50) |
+| … mache ich Buttons gut antippbar? | [Klickflächen](referenz/css/18-responsive.css#L54-L59) |
+| … teste ich auf verschiedenen Bildschirmen? | [So testest du](referenz/18-responsive.html#L46-L52) |
+
+## 19 · CSS-Frameworks
+
+| Wie …? | Beispiel |
+|---|---|
+| … unterscheiden sich eigenes CSS, Bootstrap und Tailwind? | [Vergleich](referenz/19-frameworks.html#L25-L44) |
+| … nutze ich das Bootstrap-Raster? | [Bootstrap](referenz/19-frameworks.html#L48-L58) |
+| … nutze ich Tailwind-Klassen? | [Tailwind](referenz/19-frameworks.html#L62-L70) |
+| … entscheiden wir uns im Team? | [Kriterien](referenz/19-frameworks.html#L74-L80) |
+
+> **Positionierung** (`relative`, `absolute`, `fixed`, `sticky`): siehe Einheit „Positionierung in CSS“.
 
 ---
 
